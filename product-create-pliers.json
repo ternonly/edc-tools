@@ -1,0 +1,24 @@
+{
+  "product": {
+    "title": "Field Precision — Multi-Function Tactical Pliers",
+    "body_html": "<h3>Precision when seconds matter.</h3><p>The Field Precision delivers surgical control for emergency repair, fine cutting, and intricate gripping work. The everyday-carry tool that bridges the gap between brute force and finesse.</p><h4>Key capabilities</h4><ul><li><strong>Needle-Nose Tip</strong> — Reach into tight spaces traditional pliers can't</li><li><strong>Wire Cutter &amp; Stripper</strong> — Hardened cutting blades handle copper, aluminum, fence wire</li><li><strong>Folding Knife Blade</strong> — Razor-sharp 5cm 3CR13 blade for cordage and field-cut work</li><li><strong>Integrated Bottle Opener</strong> — Always within reach</li><li><strong>One-Handed Deploy</strong> — Spring-assist opening for emergency speed</li></ul><h4>Specifications</h4><table><tr><td><strong>Closed Length</strong></td><td>11.7 cm</td></tr><tr><td><strong>Open Length</strong></td><td>17 cm</td></tr><tr><td><strong>Material</strong></td><td>3CR13 Hardened Stainless Steel</td></tr><tr><td><strong>Blade Length</strong></td><td>5 cm</td></tr><tr><td><strong>Weight</strong></td><td>275 g</td></tr><tr><td><strong>Dimensions</strong></td><td>11.7 &times; 5.5 &times; 3.4 cm (closed)</td></tr></table><h4>What's in the box</h4><ul><li>1 &times; Field Precision Multi-Function Pliers</li><li>1 &times; Nylon Belt Pouch</li><li>1 &times; Survival72 Quick-Reference Card</li></ul><h4>Shipping &amp; Returns</h4><p>Free shipping on orders over $35. Cash on Delivery available across UAE, Saudi Arabia, Qatar, Kuwait, and Oman. 30-day return window from delivery date.</p>",
+    "vendor": "Survival72",
+    "product_type": "Tactical Tools",
+    "tags": "EDC, Multi-Pliers, Folding Knife, Desert-Tested, Survival, Tactical",
+    "status": "active",
+    "published": true,
+    "options": [{"name": "Title", "values": ["Default"]}],
+    "variants": [{
+      "option1": "Default",
+      "price": "52.00",
+      "compare_at_price": "72.00",
+      "sku": "S72-PLIERS",
+      "weight": 275,
+      "weight_unit": "g",
+      "inventory_management": "shopify",
+      "inventory_policy": "deny",
+      "requires_shipping": true,
+      "taxable": true
+    }]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {}
+    },
+    "marquee": {
+      "type": "marquee",
+      "settings": {}
+    },
+    "why": {
+      "type": "media-with-content",
+      "settings": {}
+    },
+    "featured_configurator": {
+      "type": "featured-product",
+      "settings": {
+        "product": "survival72-modular-system-configurator"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "marquee",
+    "why",
+    "featured_configurator"
+  ]
+}

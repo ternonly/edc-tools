@@ -1,0 +1,20 @@
+[
+  {
+    "sku": "S72-AXE-WRENCH",
+    "product_id": 8486567673901,
+    "variant_id": 44895136514093,
+    "handle": "break-build-kit-axe-wrench-bundle"
+  },
+  {
+    "sku": "S72-KIT-STD",
+    "product_id": 8486567739437,
+    "variant_id": 44895136612397,
+    "handle": "72-hour-kit-complete-3-tool-survival-system"
+  },
+  {
+    "sku": "S72-KIT-GIFT",
+    "product_id": 8486567739437,
+    "variant_id": 44895136645165,
+    "handle": "72-hour-kit-complete-3-tool-survival-system"
+  }
+]

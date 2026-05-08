@@ -1,0 +1,24 @@
+{
+  "product": {
+    "title": "Camp & Rescue Kit — Axe + Pliers Bundle",
+    "body_html": "<h3>The two tools that handle 80% of campsite emergencies.</h3><p>Pair the breaking power of the Desert Breacher with the precision control of the Field Precision pliers. Built for off-road camping trips where you need to chop, build, cut, grip, and improvise — all in one carry.</p><h4>What's included</h4><ul><li><strong>1 &times; Desert Breacher</strong> — Multi-function tactical axe (vehicle breach, wood splitting, hammer, claw)</li><li><strong>1 &times; Field Precision</strong> — Multi-function pliers (needle-nose, wire cutter, folding knife, bottle opener)</li><li><strong>2 &times; MOLLE-Compatible Sheaths</strong> — Belt-loop and pack attachment ready</li><li><strong>1 &times; Survival72 Quick-Reference Card</strong></li></ul><h4>Why this combo</h4><p>Most campsite problems break into two categories: <strong>brute force</strong> (clearing brush, splitting wood, breaking ice on water containers) and <strong>precision work</strong> (fixing tent rigging, cutting paracord, repairing zippers). One tool for each — no compromise, no missing capability.</p><h4>Specifications</h4><table><tr><td><strong>Total Weight</strong></td><td>760 g</td></tr><tr><td><strong>Combined Materials</strong></td><td>3CR13 hardened steel (axe head) + Stainless steel (pliers, natural silver finish)</td></tr><tr><td><strong>Total Folding Knife Blades</strong></td><td>2 &times; 7.2 cm (one in axe handle, one in pliers)</td></tr><tr><td><strong>Packaging</strong></td><td>Standard cardboard box</td></tr></table><h4>Save $32 vs buying separately</h4><p>Single price: $89 (vs $101 if bought as individual items). Free shipping on orders over $35.</p><h4>Shipping &amp; Returns</h4><p>Cash on Delivery available across UAE, Saudi Arabia, Qatar, Kuwait, and Oman. 30-day return window from delivery date.</p>",
+    "vendor": "Survival72",
+    "product_type": "Bundles",
+    "tags": "Bundle, EDC Kit, Camp Kit, Multi-Tool, Desert-Tested",
+    "status": "active",
+    "published": true,
+    "options": [{"name": "Title", "values": ["Default"]}],
+    "variants": [{
+      "option1": "Default",
+      "price": "89.00",
+      "compare_at_price": "121.00",
+      "sku": "S72-AXE-PLIERS",
+      "weight": 760,
+      "weight_unit": "g",
+      "inventory_management": "shopify",
+      "inventory_policy": "deny",
+      "requires_shipping": true,
+      "taxable": true
+    }]
+  }
+}

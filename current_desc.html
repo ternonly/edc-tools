@@ -1,0 +1,165 @@
+<div id="s72-configurator" style="background: #ffffff; padding: 30px; border: 2px solid #1a1a1a; border-radius: 0; margin: 20px 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; position: relative; z-index: 10;">
+  <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+    <div>
+      <h3 style="margin: 0; font-size: 1.5rem; letter-spacing: 1px; text-transform: uppercase;">Modular System Configurator</h3>
+      <p style="margin: 5px 0 0; font-size: 13px; color: #666; font-style: italic;">"Those Who Carry, Know Why"</p>
+    </div>
+    <div style="text-align: right;">
+      <span id="kit-badge" style="display: none; background: #C9A96E; color: #fff; padding: 4px 12px; font-size: 11px; font-weight: 700; text-transform: uppercase; border-radius: 20px;">Elite Kit Active</span>
+    </div>
+  </div>
+
+  <div class="s72-modules" style="display: grid; gap: 12px; margin-bottom: 20px;">
+    <label class="config-label" style="display: flex; align-items: center; cursor: pointer; padding: 15px; border: 1px solid #ddd; background: #fff; transition: all 0.2s;">
+      <input type="checkbox" class="s72-module" data-price="52" data-name="Pliers" style="width: 18px; height: 18px; margin-right: 15px; accent-color: #1a1a1a;">
+      <div style="flex-grow: 1;">
+        <span style="font-weight: 700; display: block; font-size: 14px;">Module 01: Precision Pliers</span>
+        <span style="font-size: 11px; color: #888;">Heavy-duty grip &amp; wire cutter — $52</span>
+      </div>
+      <div style="font-weight: 700; font-size: 14px;">$52</div>
+    </label>
+
+    <label class="config-label" style="display: flex; align-items: center; cursor: pointer; padding: 15px; border: 1px solid #ddd; background: #fff; transition: all 0.2s;">
+      <input type="checkbox" class="s72-module" data-price="42" data-name="Wrench" style="width: 18px; height: 18px; margin-right: 15px; accent-color: #1a1a1a;">
+      <div style="flex-grow: 1;">
+        <span style="font-weight: 700; display: block; font-size: 14px;">Module 02: Roadside Wrench</span>
+        <span style="font-size: 11px; color: #888;">Universal valve &amp; battery adjustment — $42</span>
+      </div>
+      <div style="font-weight: 700; font-size: 14px;">$42</div>
+    </label>
+
+    <label class="config-label" style="display: flex; align-items: center; cursor: pointer; padding: 15px; border: 1px solid #ddd; background: #fff; transition: all 0.2s;">
+      <input type="checkbox" class="s72-module" data-price="49" data-name="Axe" style="width: 18px; height: 18px; margin-right: 15px; accent-color: #1a1a1a;">
+      <div style="flex-grow: 1;">
+        <span style="font-weight: 700; display: block; font-size: 14px;">Module 03: Breacher Axe</span>
+        <span style="font-size: 11px; color: #888;">Emergency entry &amp; recovery tool — $49</span>
+      </div>
+      <div style="font-weight: 700; font-size: 14px;">$49</div>
+    </label>
+  </div>
+
+  <div id="elite-gift-section" style="margin-top: 25px; border-top: 1px solid #eee; padding-top: 20px;">
+    <label id="box-label" style="display: flex; align-items: center; cursor: pointer; padding: 20px; border: 2px solid #ddd; background: #fdfdfd; transition: all 0.3s;">
+      <input type="checkbox" id="elite-box" data-price="29" style="width: 20px; height: 20px; margin-right: 15px; accent-color: #C9A96E;">
+      <div style="flex-grow: 1;">
+        <span style="font-weight: 700; color: #1a1a1a; display: block; font-size: 15px; text-transform: uppercase; letter-spacing: 0.5px;">Elite Gift Packaging (+ $29)</span>
+        <span style="font-size: 12px; color: #666;">Magnetic clamshell box + S72 Printed Field Guide.</span>
+      </div>
+      <div style="color: #C9A96E; font-weight: 700;">$29</div>
+    </label>
+  </div>
+
+  <div style="background: #1a1a1a; color: #fff; padding: 25px; margin-top: 30px; text-align: center;">
+    <div id="price-summary" style="font-size: 12px; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Select modules to begin build</div>
+    <div id="total-price-display" style="font-size: 36px; font-weight: 700; font-family: 'Courier New', Courier, monospace;">$0.00</div>
+    <div id="savings-note" style="color: #C9A96E; font-size: 13px; font-weight: 700; margin-top: 8px; min-height: 18px;"></div>
+  </div>
+  
+  <p style="font-size: 11px; color: #999; text-align: center; margin-top: 15px;">Final price includes all selected modules and survival discounts.</p>
+</div>
+
+<style>
+  /* Hide the native variant picker to avoid confusion */
+  variant-selects, variant-radios, .product-form__input--pill { display: none !important; }
+  .config-label.active { border-color: #1a1a1a !important; background: #f8f8f8 !important; }
+  #box-label.active { border-color: #C9A96E !important; background: #fffbf2 !important; box-shadow: 0 4px 12px rgba(201,169,110,0.1); }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const modules = document.querySelectorAll('.s72-module');
+  const eliteBox = document.getElementById('elite-box');
+  const totalPriceEl = document.getElementById('total-price-display');
+  const savingsEl = document.getElementById('savings-note');
+  const summaryEl = document.getElementById('price-summary');
+  const badgeEl = document.getElementById('kit-badge');
+
+  function updatePrice() {
+    let subtotal = 0;
+    let selectedCount = 0;
+    
+    modules.forEach(m => {
+      const label = m.closest('.config-label');
+      if (m.checked) {
+        subtotal += parseFloat(m.dataset.price);
+        selectedCount++;
+        label.classList.add('active');
+      } else {
+        label.classList.remove('active');
+      }
+    });
+
+    const boxLabel = eliteBox.closest('#box-label');
+    if (eliteBox.checked) {
+      boxLabel.classList.add('active');
+    } else {
+      boxLabel.classList.remove('active');
+    }
+
+    let discount = 0;
+    if (selectedCount === 2) discount = 15;
+    if (selectedCount === 3) discount = 27;
+
+    let total = subtotal - discount;
+    if (eliteBox.checked) {
+      total += parseFloat(eliteBox.dataset.price);
+    }
+
+    totalPriceEl.textContent = '$' + total.toFixed(2);
+    summaryEl.textContent = selectedCount + ' Module(s) selected' + (eliteBox.checked ? ' + Elite Packaging' : '');
+    
+    if (discount > 0) {
+      savingsEl.textContent = 'SYSTEM DISCOUNT APPLIED: -$' + discount;
+    } else {
+      savingsEl.textContent = '';
+    }
+    
+    if (selectedCount === 3 && eliteBox.checked) {
+      badgeEl.style.display = 'inline-block';
+    } else {
+      badgeEl.style.display = 'none';
+    }
+
+    // Force update Shopify's price display if present
+    const priceSelectors = [
+      '.price-item--regular',
+      '.price-item--sale',
+      '.price__regular .price-item',
+      '.price__sale .price-item',
+      '.product-form__submit span',
+      '.totals__total-value'
+    ];
+    
+    priceSelectors.forEach(selector => {
+      const els = document.querySelectorAll(selector);
+      els.forEach(el => {
+        if (el.textContent.includes('$') || el.textContent.includes('¥')) {
+           el.textContent = '$' + total.toFixed(2);
+        }
+      });
+    });
+  }
+
+  // Check URL parameters
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('auto_kit') === 'elite') {
+    modules.forEach(m => m.checked = true);
+    eliteBox.checked = true;
+    console.log('Elite Kit auto-selected via URL parameter.');
+  }
+
+  modules.forEach(m => m.addEventListener('change', updatePrice));
+  eliteBox.addEventListener('change', updatePrice);
+  
+  // Initial run
+  updatePrice();
+  
+  // High-frequency override to combat theme dynamic loading
+  let overrideCount = 0;
+  const priceInterval = setInterval(() => {
+    updatePrice();
+    overrideCount++;
+    if (overrideCount > 10) clearInterval(priceInterval);
+  }, 300);
+});
+</script>

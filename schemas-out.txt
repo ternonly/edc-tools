@@ -1,0 +1,100 @@
+
+### sections_hero.liquid.txt -> name=t:names.hero
+  blocks: ['@theme', 'text', 'button', 'logo', 'jumbo-text', 'spacer', 'group', '_marquee']
+  presets: ['t:names.hero', 't:names.hero_marquee', 't:names.hero_bottom_aligned']
+  settings: (45)
+    - media_type_1                   type=select         default=image
+    - image_1                        type=image_picker  
+    - video_1                        type=video         
+    - media_type_2                   type=select         default=image
+    - image_2                        type=image_picker  
+    - video_2                        type=video         
+    - stack_media_on_mobile          type=checkbox       default=False
+    - custom_mobile_media            type=checkbox       default=False
+    - media_type_1_mobile            type=select         default=image
+    - image_1_mobile                 type=image_picker  
+    - video_1_mobile                 type=video         
+    - media_type_2_mobile            type=select         default=image
+    - image_2_mobile                 type=image_picker  
+    - video_2_mobile                 type=video         
+    - open_in_new_tab                type=checkbox       default=False
+    - content_direction              type=select         default=column
+    - vertical_on_mobile             type=checkbox       default=True
+    - horizontal_alignment           type=select         default=flex-start
+    - vertical_alignment             type=select         default=center
+    - align_baseline                 type=checkbox       default=False
+    - horizontal_alignment_flex_direction_column type=select         default=flex-start
+    - vertical_alignment_flex_direction_column type=select         default=center
+    - section_width                  type=select         default=page-width
+    - section_height                 type=select         default=medium
+    - toggle_overlay                 type=checkbox      
+    - overlay_color                  type=color          default=#00000026
+    - overlay_style                  type=select         default=solid
+    - gradient_direction             type=select         default=to top
+    - blurred_reflection             type=checkbox       default=False
+
+### sections_header-announcements.liquid.txt -> name=t:names.announcement_bar
+  blocks: ['_announcement']
+  presets: ['t:names.announcement_bar']
+  settings: (8)
+    - section_width                  type=select         default=page-width
+
+### sections_marquee.liquid.txt -> name=t:names.marquee
+  blocks: ['text', 'icon', 'logo', '_divider']
+  presets: ['t:names.marquee_section']
+  settings: (6)
+    - movement_direction             type=select         default=normal
+
+### sections_media-with-content.liquid.txt -> name=t:names.media_with_text
+  blocks: []
+  presets: ['t:names.editorial', 't:names.editorial_jumbo_text']
+  settings: (9)
+    - media_position                 type=select         default=left
+    - media_width                    type=select         default=wide
+    - media_height                   type=select         default=80svh
+    - section_width                  type=select         default=full-width
+    - extend_media                   type=checkbox       default=True
+
+### sections_featured-product.liquid.txt -> name=t:names.featured_product
+  blocks: []
+  presets: ['t:names.featured_product']
+  settings: (6)
+    - layout                         type=select         default=media-left
+
+### sections_header.liquid.txt -> name=t:names.header
+  blocks: []
+  presets: []
+  settings: (45)
+    - logo_position                  type=select         default=center
+    - menu_position                  type=select         default=left
+    - menu_row                       type=select         default=top
+    - show_search                    type=checkbox       default=True
+    - search_position                type=select         default=right
+    - search_row                     type=select         default=top
+    - show_country                   type=checkbox       default=True
+    - country_selector_style         type=checkbox       default=True
+    - show_language                  type=checkbox       default=True
+    - localization_font              type=select         default=heading
+    - localization_font_size         type=select         default=1rem
+    - localization_position          type=select         default=right
+    - localization_row               type=select         default=top
+    - section_width                  type=select        
+    - section_height                 type=select         default=standard
+    - enable_sticky_header           type=select         default=always
+    - divider_size                   type=select        
+    - actions_display_style          type=select         default=icon
+    - actions_font_size              type=select         default=0.875rem
+    - actions_font                   type=select         default=body
+    - actions_text_case              type=select         default=none
+    - enable_transparent_header_home type=checkbox       default=False
+    - home_color_scheme              type=select         default=default
+    - enable_transparent_header_product type=checkbox       default=False
+    - product_color_scheme           type=select         default=default
+    - enable_transparent_header_collection type=checkbox       default=False
+    - collection_color_scheme        type=select         default=default
+
+### sections_footer.liquid.txt -> name=t:names.footer
+  blocks: ['_divider', '@app', 'button', 'follow-on-shop', 'group', 'icon', 'image', 'menu', 'payment-icons', 'text', 'logo', 'jumbo-text', 'social-links', 'email-signup']
+  presets: ['t:names.footer']
+  settings: (6)
+    - section_width                  type=select         default=page-width

@@ -1,0 +1,82 @@
+{
+  "pages": [
+    {
+      "id": 120651022381,
+      "title": "About Survival72",
+      "shop_id": 75190304813,
+      "handle": "about",
+      "body_html": "\n<div style=\"max-width: 800px; margin: 0 auto; line-height: 1.8; color: #333;\">\n  <p style=\"font-size: 1.2rem; font-weight: 700; color: #111; margin-bottom: 2rem;\">I remember exactly where I was when I realized the \"preparedness\" industry was broken.</p>\n  \n  <p>I was training a group of families in the Empty Quarter. A simple battery terminal failure on a lead vehicle should have been a 5-minute fix. Instead, it became a 2-hour ordeal because the \"survival multi-tool\" someone had bought online snapped under the torque of a real nut. It was a toy masquerading as a tool.</p>\n\n  <p>I’m <strong>Cole Mercer</strong>. For a decade, I’ve taught families across the GCC how to survive the first 72 hours of a crisis. I don’t teach \"tactical cosplay.\" I teach household self-sufficiency—because when a flash flood hits or a supply chain gaps, help isn't coming for at least three days.</p>\n\n  <p>I founded <strong>Survival72</strong> because I was tired of seeing families rely on gear built for mountain hikers. We live in a desert. Our heat reaches 50°C. Our sand is abrasive. Our vehicles are different. We need gear that respects those realities.</p>\n\n  <p style=\"font-weight: 700;\">The Three-Tool System is my answer.</p>\n  \n  <p>I stripped away the fluff. You don’t need a 20-in-1 gadget. You need a <strong>Breacher Axe</strong> for entry, a <strong>Roadside Wrench</strong> for utility, and <strong>Precision Pliers</strong> that won't melt or bend when you need them most. Each tool is built to survive a month-long stress cycle in the Empty Quarter before I even think about selling it to you.</p>\n\n  <p>I’m not building a tactical brand. I’m building a promise. When you carry Survival72, you carry my ten years of experience in the field. You carry the confidence that if things go wrong, you’re the one who makes them right.</p>\n\n  <div style=\"margin-top: 3rem; padding: 2rem; border: 1px solid #C9A96E; background: #fffbf2; text-align: center;\">\n    <p style=\"font-style: italic; margin-bottom: 1rem;\">\"The first 72 hours decide everything. I make the gear that stands behind a family during those hours.\"</p>\n    <p style=\"font-weight: 700;\">— Cole Mercer</p>\n  </div>\n</div>\n",
+      "author": "Shopify API",
+      "created_at": "2026-05-01T18:21:59+08:00",
+      "updated_at": "2026-05-05T19:56:04+08:00",
+      "published_at": "2026-05-01T18:21:59+08:00",
+      "template_suffix": null,
+      "admin_graphql_api_id": "gid://shopify/Page/120651022381"
+    },
+    {
+      "id": 120646402093,
+      "title": "Contact",
+      "shop_id": 75190304813,
+      "handle": "contact",
+      "body_html": null,
+      "author": null,
+      "created_at": "2026-05-01T13:27:04+08:00",
+      "updated_at": "2026-05-01T13:27:04+08:00",
+      "published_at": "2026-05-01T13:27:04+08:00",
+      "template_suffix": "contact",
+      "admin_graphql_api_id": "gid://shopify/Page/120646402093"
+    },
+    {
+      "id": 120793759789,
+      "title": "Corporate & Bespoke",
+      "shop_id": 75190304813,
+      "handle": "corporate-partnerships",
+      "body_html": "\n<style>\n  .corp-hero { background: #1a1a1a; color: #fff; padding: 100px 24px; text-align: center; }\n  .corp-content { max-width: 800px; margin: 80px auto; padding: 0 24px; color: #444; line-height: 1.8; }\n  .corp-title { font-size: 32px; font-weight: 700; color: #1a1a1a; margin-bottom: 30px; }\n  .corp-accent { color: #C9A96E; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }\n</style>\n<div class=\"corp-hero\">\n  <p class=\"corp-accent\">Strategic Alliances</p>\n  <h1 style=\"font-size: 48px; margin: 20px 0;\">Corporate &amp; Bespoke Solutions</h1>\n  <p style=\"color: #aaa; font-size: 18px;\">Excellence in preparedness for your organization and leadership.</p>\n</div>\n<div class=\"corp-content\">\n  <h2 class=\"corp-title\">Beyond Bulk. Strategic Partnership.</h2>\n  <p>Survival72 doesn’t just provide tools; we provide peace of mind for the world’s most discerning organizations. Our Corporate &amp; Bespoke program is designed for entities that prioritize resilience, quality, and prestige.</p>\n  \n  <h3 style=\"margin-top: 40px;\">Our Capabilities</h3>\n  <ul>\n    <li>\n<strong>Executive Gifting:</strong> Custom-branded Elite Kits for leadership and key stakeholders.</li>\n    <li>\n<strong>Fleet &amp; Project Supply:</strong> Specialized modular systems for high-stakes field operations.</li>\n    <li>\n<strong>Bespoke Laser Engraving:</strong> Precision marking of company logos or individual names on every tool module.</li>\n    <li>\n<strong>Dedicated Account Management:</strong> Priority logistics and structured procurement for GCC-wide deployments.</li>\n  </ul>\n  \n  <p style=\"margin-top: 50px; border-top: 1px solid #eee; padding-top: 30px;\">\n    To discuss a strategic collaboration or to request a private briefing, please contact our Partnership Director at <strong>partnerships@survival72gear.com</strong> or use our secure contact form.\n  </p>\n</div>\n",
+      "author": "Shopify API",
+      "created_at": "2026-05-05T19:45:57+08:00",
+      "updated_at": "2026-05-05T19:45:57+08:00",
+      "published_at": "2026-05-05T19:45:57+08:00",
+      "template_suffix": null,
+      "admin_graphql_api_id": "gid://shopify/Page/120793759789"
+    },
+    {
+      "id": 120793366573,
+      "title": "Our Promise",
+      "shop_id": 75190304813,
+      "handle": "our-promise",
+      "body_html": "<h2>Built to earn your trust. Guaranteed to keep it.</h2>\n<p>Survival72 exists because most tools are designed to look good on a shelf. We build ours to be used — every day, in real situations, by people who know the difference.</p>\n<h3>What we promise</h3>\n<ul>\n<li>\n<strong>2-Year Guarantee</strong> — Every module is covered against manufacturing defects for two full years. No receipts needed. No arguments.</li>\n<li>\n<strong>30-Day Returns</strong> — Not the right fit? Return it, no questions asked.</li>\n<li>\n<strong>Ships in 48 Hours</strong> — Orders confirmed before 14:00 GST ship the same day. All others ship next business day.</li>\n<li>\n<strong>Gift-Ready Packaging</strong> — Every order arrives presentation-ready. The Elite Kit includes our magnetic clamshell box at no extra charge.</li>\n<li>\n<strong>Real Support</strong> — You will speak to a human, not a chatbot. Response within 24 hours on business days.</li>\n</ul>\n<p><em>Those who carry, know why.</em></p>",
+      "author": null,
+      "created_at": "2026-05-05T19:28:59+08:00",
+      "updated_at": "2026-05-05T19:28:59+08:00",
+      "published_at": "2026-05-05T19:28:59+08:00",
+      "template_suffix": null,
+      "admin_graphql_api_id": "gid://shopify/Page/120793366573"
+    },
+    {
+      "id": 120793333805,
+      "title": "Return Policy",
+      "shop_id": 75190304813,
+      "handle": "return-policy",
+      "body_html": "<h2>30-Day No-Questions Return Policy</h2>\n<p>If you are not completely satisfied with your Survival72 purchase, return it within 30 days of delivery for a full refund or exchange.</p>\n<h3>How to return</h3>\n<ol>\n<li>Email us at <strong>support@survival72gear.com</strong> with your order number.</li>\n<li>We will send you a prepaid return label within 24 hours.</li>\n<li>Ship the item back in its original packaging.</li>\n<li>Your refund will be processed within 5 business days of receiving the return.</li>\n</ol>\n<h3>Conditions</h3>\n<ul>\n<li>Items must be unused and in original condition.</li>\n<li>The Elite Gift Kit box must be unopened for a full refund; opened kits qualify for exchange only.</li>\n<li>Our 2-Year Guarantee covers manufacturing defects separately — contact us for warranty claims.</li>\n</ul>",
+      "author": null,
+      "created_at": "2026-05-05T19:28:58+08:00",
+      "updated_at": "2026-05-05T19:28:58+08:00",
+      "published_at": "2026-05-05T19:28:58+08:00",
+      "template_suffix": null,
+      "admin_graphql_api_id": "gid://shopify/Page/120793333805"
+    },
+    {
+      "id": 120651055149,
+      "title": "Wholesale & Custom",
+      "shop_id": 75190304813,
+      "handle": "wholesale",
+      "body_html": "<div style=\"max-width: 980px; margin: 0 auto;\">\n<h2>Wholesale &amp; Custom Solutions for Middle East Retailers</h2>\n<p style=\"font-size: 1.1em; color: #555;\">Trade-license-verified. ISO 9001 supply chain. Lead time from <strong>14 days</strong>. Custom branding from <strong>50 units</strong>.</p>\n\n<h3>Our Three B2B Programs</h3>\n<table style=\"width:100%; border-collapse:collapse; margin-bottom: 30px;\">\n<tr style=\"background:#1A1A1A; color:#C9A96E;\">\n<th style=\"padding:14px; text-align:left;\">Program</th>\n<th style=\"padding:14px; text-align:left;\">Best For</th>\n<th style=\"padding:14px; text-align:left;\">MOQ</th>\n</tr>\n<tr style=\"border-bottom:1px solid #ddd;\">\n<td style=\"padding:12px;\"><strong>Wholesale</strong></td>\n<td style=\"padding:12px;\">Hardware retailers, outdoor stores, e-commerce resellers</td>\n<td style=\"padding:12px;\">100 units</td>\n</tr>\n<tr style=\"border-bottom:1px solid #ddd;\">\n<td style=\"padding:12px;\"><strong>Custom Branding</strong></td>\n<td style=\"padding:12px;\">Private label / OEM / co-branded retail SKUs</td>\n<td style=\"padding:12px;\">500 units</td>\n</tr>\n<tr style=\"border-bottom:1px solid #ddd;\">\n<td style=\"padding:12px;\"><strong>Corporate Gifting</strong></td>\n<td style=\"padding:12px;\">Bank Eid gifts, oil &amp; gas safety promotions, government</td>\n<td style=\"padding:12px;\">50 units</td>\n</tr>\n</table>\n\n<h3>Why Retailers Choose Survival72</h3>\n<ul>\n<li>\n<strong>ISO 9001 certified manufacturing</strong> — Audit reports available on request</li>\n<li>\n<strong>MIL-STD-810H environmental tested</strong> — 50°C operational rating</li>\n<li>\n<strong>14-day standard lead time</strong> for in-stock SKUs; 30 days for custom branding</li>\n<li>\n<strong>Free pre-production sample</strong> for orders over 500 units</li>\n<li>\n<strong>UAE Trade License verified</strong> — Certificate provided after first contact</li>\n</ul>\n\n<h3>How It Works</h3>\n<ol>\n<li>\n<strong>Inquire</strong> — WhatsApp or form below. We respond within 4 business hours.</li>\n<li>\n<strong>Catalog &amp; Quote</strong> — PDF catalog + quote sent within 24 hours.</li>\n<li>\n<strong>Sample / PO</strong> — Approve sample, then issue PO. 30% deposit, 70% before shipment.</li>\n<li>\n<strong>Fulfill</strong> — FCL/LCL shipping to Jebel Ali, Dammam, Doha, Muscat. DDP terms available.</li>\n</ol>\n\n<div style=\"background:#f6f4ee; padding:30px; margin-top:40px; border-radius:6px;\">\n<h3 style=\"margin-top:0;\">Request a Quote</h3>\n<p>For inquiries, please email us at <strong>wholesale@survival72.com</strong> with the following:</p>\n<ul>\n<li>Company name + Trade license number</li>\n<li>Country / Emirate of operation</li>\n<li>Estimated quantity (50–500 / 500–5000 / 5000+)</li>\n<li>Program of interest (Wholesale / Custom Branding / Corporate Gifting)</li>\n<li>Target ship date</li>\n</ul>\n<p style=\"margin-top:20px;\"><strong>WhatsApp B2B line:</strong> Coming soon — HK number activating Q2 2026.</p>\n<p><em>4-hour business response guaranteed (UAE timezone, Sun–Thu 09:00–18:00 GST).</em></p>\n</div>\n\n<p style=\"text-align:center; margin-top:30px; color:#888; font-size:0.9em;\">Trusted supplier mark: ISO 9001 · MIL-STD-810H · UAE Trade License Verified</p>\n</div>",
+      "author": "Shopify API",
+      "created_at": "2026-05-01T18:22:00+08:00",
+      "updated_at": "2026-05-01T18:22:00+08:00",
+      "published_at": "2026-05-01T18:22:00+08:00",
+      "template_suffix": null,
+      "admin_graphql_api_id": "gid://shopify/Page/120651055149"
+    }
+  ]
+}

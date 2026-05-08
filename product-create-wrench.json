@@ -1,0 +1,24 @@
+{
+  "product": {
+    "title": "Roadside Fix — Multi-Function Tactical Wrench",
+    "body_html": "<h3>When the road fails you, this doesn't.</h3><p>The Roadside Fix is the EDC wrench every off-road driver and home prepper needs. Engineered for vehicle breakdowns, trailer emergencies, and improvised mechanical work in the harshest desert conditions.</p><h4>Key capabilities</h4><ul><li><strong>Universal Wrench Profile</strong> — Adjustable jaw fits 6 standard hex sizes (8mm-19mm)</li><li><strong>Plier Function</strong> — Hardened steel jaws grip nuts, bolts, wires</li><li><strong>Wire Cutter</strong> — Built-in cutter for emergency repair work</li><li><strong>Bottle Opener &amp; Hex Driver</strong> — Integrated into the spine</li><li><strong>Sand-Resistant Hinge</strong> — Sealed pivot keeps grit out in desert conditions</li></ul><h4>Specifications</h4><table><tr><td><strong>Total Length</strong></td><td>16.2 cm</td></tr><tr><td><strong>Material</strong></td><td>3CR13 Hardened Stainless Steel</td></tr><tr><td><strong>Finish</strong></td><td>Black phosphate, anti-corrosion</td></tr><tr><td><strong>Weight</strong></td><td>320 g</td></tr><tr><td><strong>Dimensions</strong></td><td>16.2 &times; 6.7 &times; 3.4 cm</td></tr><tr><td><strong>Pouch</strong></td><td>1000D Nylon, belt-loop compatible</td></tr></table><h4>What's in the box</h4><ul><li>1 &times; Roadside Fix Multi-Function Wrench</li><li>1 &times; Nylon Belt Pouch</li><li>1 &times; Survival72 Quick-Reference Card</li></ul><h4>Shipping &amp; Returns</h4><p>Free shipping on orders over $35. Cash on Delivery available across UAE, Saudi Arabia, Qatar, Kuwait, and Oman. 30-day return window from delivery date.</p>",
+    "vendor": "Survival72",
+    "product_type": "Tactical Tools",
+    "tags": "EDC, Multi-Wrench, Roadside, Desert-Tested, Off-Road, Survival",
+    "status": "active",
+    "published": true,
+    "options": [{"name": "Title", "values": ["Default"]}],
+    "variants": [{
+      "option1": "Default",
+      "price": "42.00",
+      "compare_at_price": "59.00",
+      "sku": "S72-WRENCH",
+      "weight": 320,
+      "weight_unit": "g",
+      "inventory_management": "shopify",
+      "inventory_policy": "deny",
+      "requires_shipping": true,
+      "taxable": true
+    }]
+  }
+}

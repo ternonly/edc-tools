@@ -1,0 +1,24 @@
+{
+  "product": {
+    "title": "Desert Breacher — Multi-Function Tactical Axe",
+    "body_html": "<h3>Built to break, built to build.</h3><p>The Desert Breacher is your single-tool answer to roadside emergencies, off-road camp setup, and urban breach scenarios. Engineered for 50&deg;C desert conditions and tested against MIL-STD-810H impact standards.</p><h4>Key capabilities</h4><ul><li><strong>Vehicle Breach</strong> — Hardened steel head splits side windows in one strike</li><li><strong>Camp Build</strong> — Wood splitting, stake driving, branch clearing in one tool</li><li><strong>Multi-Tool Integration</strong> — Hammer face, claw, hex wrench, and bottle opener built into the handle</li><li><strong>Desert-Grade Coating</strong> — Black phosphate finish resists sand abrasion and Gulf humidity</li><li><strong>Tactical Carry</strong> — MOLLE-compatible nylon sheath included</li></ul><h4>Specifications</h4><table><tr><td><strong>Total Length</strong></td><td>20 cm</td></tr><tr><td><strong>Head Material</strong></td><td>3CR13 Hardened Steel</td></tr><tr><td><strong>Handle</strong></td><td>Glass-fiber reinforced nylon, anti-slip rubber grip</td></tr><tr><td><strong>Weight</strong></td><td>485 g</td></tr><tr><td><strong>Dimensions</strong></td><td>20 &times; 11 &times; 3.4 cm</td></tr><tr><td><strong>Sheath</strong></td><td>1000D Nylon, MOLLE-compatible</td></tr></table><h4>What's in the box</h4><ul><li>1 &times; Desert Breacher Multi-Function Axe</li><li>1 &times; MOLLE Nylon Sheath</li><li>1 &times; Survival72 Quick-Reference Card</li></ul><h4>Shipping &amp; Returns</h4><p>Free shipping on orders over $35. Cash on Delivery available across UAE, Saudi Arabia, Qatar, Kuwait, and Oman. 30-day return window from delivery date.</p>",
+    "vendor": "Survival72",
+    "product_type": "Tactical Tools",
+    "tags": "EDC, Tactical Axe, Multi-Tool, Desert-Tested, Survival, Bug-Out Bag",
+    "status": "active",
+    "published": true,
+    "options": [{"name": "Title", "values": ["Default"]}],
+    "variants": [{
+      "option1": "Default",
+      "price": "49.00",
+      "compare_at_price": "69.00",
+      "sku": "S72-AXE",
+      "weight": 485,
+      "weight_unit": "g",
+      "inventory_management": "shopify",
+      "inventory_policy": "deny",
+      "requires_shipping": true,
+      "taxable": true
+    }]
+  }
+}

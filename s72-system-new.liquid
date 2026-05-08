@@ -1,0 +1,98 @@
+<style>
+.s72-system{padding:80px 24px;background:#fff}
+.s72-system__inner{max-width:1100px;margin:0 auto}
+.s72-system__header{text-align:center;margin-bottom:56px}
+.s72-system__kicker{font-size:12px;text-transform:uppercase;letter-spacing:2px;color:#C9A96E;display:block;margin-bottom:12px}
+.s72-system__title{font-size:42px;font-weight:700;margin:0 0 16px;letter-spacing:-1px}
+.s72-system__desc{font-size:18px;color:#666;max-width:600px;margin:0 auto}
+
+.s72-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:60px}
+.s72-card{border:1px solid #eee;padding:40px 32px;text-align:center;transition:0.3s}
+.s72-card:hover{border-color:#1a1a1a;box-shadow:0 10px 30px rgba(0,0,0,0.05)}
+.s72-card__icon{font-size:48px;margin-bottom:24px;display:block}
+.s72-card__title{font-size:20px;font-weight:700;margin:0 0 12px}
+.s72-card__text{font-size:14px;color:#888;line-height:1.6}
+
+/* 新增：礼赠强调模块 */
+.s72-gift-integration{background:#f9f9f9;padding:60px;border:1px solid #eee;display:flex;align-items:center;gap:60px;margin-top:40px}
+.s72-gift-integration__img{flex:1;background:#ddd;aspect-ratio:1;display:flex;align-items:center;justify-content:center;color:#999}
+.s72-gift-integration__content{flex:1}
+.s72-gift-integration__tag{background:#C9A96E;color:#fff;padding:4px 12px;font-size:11px;font-weight:700;text-transform:uppercase;border-radius:2px;margin-bottom:16px;display:inline-block}
+.s72-gift-integration__h3{font-size:28px;font-weight:700;margin:0 0 20px}
+.s72-gift-integration__p{font-size:16px;color:#666;line-height:1.7;margin-bottom:24px}
+.s72-gift-integration__list{margin:0 0 32px;padding:0;list-style:none}
+.s72-gift-integration__list li{margin-bottom:12px;font-size:14px;display:flex;align-items:center;gap:10px}
+.s72-gift-integration__list li::before{content:'✓';color:#C9A96E;font-weight:700}
+
+.s72-system__cta{text-align:center;margin-top:60px}
+.s72-btn{display:inline-block;background:#1a1a1a;color:#fff;padding:18px 48px;font-size:14px;font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;transition:0.3s}
+.s72-btn:hover{background:#333;transform:translateY(-2px)}
+
+@media (max-width:768px){
+  .s72-grid{grid-template-columns:1fr}
+  .s72-gift-integration{flex-direction:column;padding:32px;gap:32px}
+}
+</style>
+
+<section class="s72-system" id="s72-system">
+  <div class="s72-system__inner">
+    <div class="s72-system__header">
+      <span class="s72-system__kicker">Professional Preparedness</span>
+      <h2 class="s72-system__title">Survival72™ Modular System</h2>
+      <p class="s72-system__desc">Three professional-grade modules. One unified deployment kit. Designed for those who refuse to be caught unprepared.</p>
+    </div>
+
+    <div class="s72-grid">
+      <div class="s72-card">
+        <span class="s72-card__icon">🔧</span>
+        <h3 class="s72-card__title">Precision Pliers</h3>
+        <p class="s72-card__text">7.2-inch cold-forged steel. High-torque grip with integrated wire cutter and survival notch.</p>
+      </div>
+      <div class="s72-card">
+        <span class="s72-card__icon">🔩</span>
+        <h3 class="s72-card__title">Roadside Wrench</h3>
+        <p class="s72-card__text">Optimized for vehicle battery terminals and plumbing valves. Universal fit for emergency mechanics.</p>
+      </div>
+      <div class="s72-card">
+        <span class="s72-card__icon">🪓</span>
+        <h3 class="s72-card__title">Breacher Axe</h3>
+        <p class="s72-card__text">Short-handle emergency axe with 45-degree bevel. Engineered for entry, recovery, and heavy prep.</p>
+      </div>
+    </div>
+
+    <!-- 集成的礼赠详细介绍 -->
+    <div class="s72-gift-integration">
+      <div class="s72-gift-integration__img">
+        [Elite Gift Box Image Placeholder]
+      </div>
+      <div class="s72-gift-integration__content">
+        <span class="s72-gift-integration__tag">The Ultimate Gift</span>
+        <h3 class="s72-gift-integration__h3">The Unboxing Experience</h3>
+        <p class="s72-gift-integration__p">For the first time, professional survival gear meets luxury presentation. The Elite Gift Set transforms the 72-hour system into the ultimate gift for fathers, outdoor enthusiasts, and professionals.</p>
+        <ul class="s72-gift-integration__list">
+          <li><strong>Premium Packaging:</strong> 2mm weighted gray-board box with a hidden magnetic closure.</li>
+          <li><strong>Protection:</strong> Custom-cut high-density EVA foam lined with black suede.</li>
+          <li><strong>Education:</strong> Includes the physical 24-page Survival72™ Field Guide.</li>
+        </ul>
+        <a href="/products/survival72-modular-configurator?auto_kit=elite" class="s72-btn">Configure Your Elite Gift Set</a>
+      </div>
+    </div>
+
+    <div class="s72-system__cta">
+      <p style="font-size:14px;color:#888;margin-bottom:20px;">Build a custom kit or send the complete Elite Deployment Set.</p>
+      <a href="/products/survival72-modular-configurator" class="s72-btn" style="background:transparent;color:#1a1a1a;border:1px solid #1a1a1a;">Shop the Kit</a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "S72 System Integration",
+  "settings": [],
+  "presets": [
+    {
+      "name": "S72 System Integration"
+    }
+  ]
+}
+{% endschema %}

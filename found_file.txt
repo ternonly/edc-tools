@@ -1,0 +1,950 @@
+<style>
+/* ============================================================
+   SURVIVAL72 — Apple-style Modular Purchase UI  v4
+   隐藏所有 Shopify 原生冗余组件
+   ============================================================ */
+variant-picker,
+quantity-selector,
+[data-block-type="variant-picker"],
+[data-block-type="quantity-selector"],
+.variant-picker,
+.quantity-selector,
+.product-form__input,
+.product-info__quantity-selector,
+.product-form__quantity {
+  display: none !important;
+}
+
+/* ── 字体 & 全局 ── */
+.s72-wrap {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+               "Helvetica Neue", Arial, sans-serif;
+  color: #1d1d1f;
+  max-width: 560px;
+  margin: 0 0 28px;
+}
+.s72-section-label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #86868b;
+  margin: 24px 0 10px;
+}
+.s72-section-label:first-child { margin-top: 0; }
+
+/* ── 工具卡片 ── */
+.s72-tool-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border: 1.5px solid #d2d2d7;
+  border-radius: 14px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  background: #fff;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+.s72-tool-card:hover { border-color: #888; }
+.s72-tool-card.s72-active {
+  border-color: #1d1d1f;
+  border-width: 2px;
+  background: #fafafa;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+/* 产品缩略图 */
+.s72-thumb {
+  width: 64px;
+  height: 64px;
+  border-radius: 10px;
+  object-fit: cover;
+  background: #f0f0f0;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.s72-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.s72-thumb-placeholder {
+  font-size: 28px;
+  line-height: 1;
+}
+/* 缩略图可点击提示 */
+.s72-thumb {
+  cursor: zoom-in;
+  transition: transform 0.15s;
+}
+.s72-thumb:hover { transform: scale(1.06); }
+/* 文字区 */
+.s72-card-body { flex: 1; min-width: 0; }
+.s72-card-name {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 3px;
+}
+.s72-card-sub {
+  font-size: 12px;
+  color: #6e6e73;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* 详情按钮 */
+.s72-detail-btn {
+  font-size: 12px;
+  color: #0066cc;
+  background: none;
+  border: none;
+  padding: 4px 0;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  display: block;
+  margin-top: 4px;
+}
+.s72-detail-btn:hover { text-decoration: underline; }
+/* 右侧选中环 */
+.s72-check {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  border: 1.5px solid #c7c7cc;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+.s72-active .s72-check {
+  background: #1d1d1f;
+  border-color: #1d1d1f;
+}
+.s72-check::after {
+  content: '';
+  width: 6px; height: 10px;
+  border: 2px solid transparent;
+  border-right-color: #fff;
+  border-bottom-color: #fff;
+  transform: rotate(45deg) translate(-1px, -1px);
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.s72-active .s72-check::after { opacity: 1; }
+
+/* ── 双列选项（包装 / 运费）── */
+.s72-option-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 0;
+}
+.s72-option-card {
+  padding: 18px 14px;
+  border: 1.5px solid #d2d2d7;
+  border-radius: 14px;
+  cursor: pointer;
+  background: #fff;
+  transition: all 0.2s;
+  text-align: center;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+.s72-option-card:hover { border-color: #888; }
+.s72-option-card.s72-active {
+  border-color: #1d1d1f;
+  border-width: 2px;
+  background: #fafafa;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+.s72-option-card.s72-locked {
+  opacity: 0.38;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.s72-opt-icon { font-size: 24px; margin-bottom: 8px; }
+.s72-opt-name { font-size: 14px; font-weight: 600; margin-bottom: 3px; }
+.s72-opt-sub  { font-size: 11px; color: #6e6e73; line-height: 1.4; }
+
+/* 解锁提示 */
+.s72-unlock-hint {
+  font-size: 12px;
+  color: #ff3b30;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: opacity 0.3s;
+}
+.s72-unlock-hint.s72-hidden { opacity: 0; pointer-events: none; }
+
+/* ── 抽屉 ── */
+.s72-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0);
+  z-index: 9998;
+  pointer-events: none;
+  transition: background 0.35s ease;
+}
+.s72-drawer-overlay.s72-open {
+  background: rgba(0,0,0,0.45);
+  pointer-events: auto;
+}
+.s72-drawer {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: #fff;
+  border-radius: 20px 20px 0 0;
+  z-index: 9999;
+  transform: translateY(100%);
+  transition: transform 0.42s cubic-bezier(0.32,0.72,0,1);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.s72-drawer.s72-open { transform: translateY(0); }
+
+.s72-drawer-handle {
+  width: 36px; height: 4px;
+  background: #d2d2d7;
+  border-radius: 2px;
+  margin: 10px auto 0;
+  flex-shrink: 0;
+}
+.s72-drawer-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px 10px;
+  border-bottom: 1px solid #f0f0f0;
+  flex-shrink: 0;
+}
+.s72-drawer-back {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #0066cc;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+}
+.s72-drawer-back svg { flex-shrink: 0; }
+.s72-drawer-title {
+  font-size: 17px;
+  font-weight: 700;
+  flex: 1;
+  text-align: center;
+  margin-right: 44px; /* balance back button */
+}
+.s72-drawer-body {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 20px 20px 40px;
+  flex: 1;
+}
+
+/* 抽屉内容 */
+.s72-detail-video {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+  margin-bottom: 20px;
+}
+.s72-detail-video video,
+.s72-detail-video iframe {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border: none;
+}
+.s72-video-placeholder {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 12px;
+  background: #1d1d1f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.s72-video-placeholder span { font-size: 12px; color: #86868b; }
+
+.s72-detail-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.s72-detail-img-slot {
+  aspect-ratio: 1;
+  border-radius: 10px;
+  background: #f5f5f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c7c7cc;
+  font-size: 12px;
+}
+.s72-detail-img-slot img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.s72-detail-section-title {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 20px 0 10px;
+  color: #1d1d1f;
+}
+.s72-spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.s72-spec-table tr { border-bottom: 1px solid #f0f0f0; }
+.s72-spec-table td { padding: 9px 0; }
+.s72-spec-table td:first-child { color: #6e6e73; width: 40%; }
+.s72-feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 13px;
+  color: #3a3a3c;
+  line-height: 1.8;
+}
+.s72-feature-list li::before {
+  content: "✓  ";
+  color: #1d1d1f;
+  font-weight: 700;
+}
+
+/* ── 全屏图片轮播 ── */
+.s72-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 10100;
+  background: rgba(0,0,0,0.92);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+.s72-lightbox.s72-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.s72-lightbox-close {
+  position: absolute;
+  top: 18px; right: 22px;
+  background: rgba(255,255,255,0.13);
+  border: none;
+  border-radius: 50%;
+  width: 38px; height: 38px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  color: #fff;
+  font-size: 20px;
+  transition: background 0.2s;
+  z-index: 2;
+}
+.s72-lightbox-close:hover { background: rgba(255,255,255,0.26); }
+
+.s72-lightbox-track-wrap {
+  width: 100%;
+  overflow: hidden;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.s72-lightbox-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.36s cubic-bezier(0.32,0.72,0,1);
+  will-change: transform;
+}
+.s72-lightbox-slide {
+  min-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 48px;
+  box-sizing: border-box;
+}
+.s72-lightbox-slide img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.s72-lightbox-slide .s72-lb-placeholder {
+  font-size: 80px;
+  opacity: 0.4;
+}
+
+/* 左右箭头 */
+.s72-lb-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.13);
+  border: none;
+  border-radius: 50%;
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  color: #fff;
+  font-size: 20px;
+  transition: background 0.2s;
+  z-index: 2;
+}
+.s72-lb-arrow:hover { background: rgba(255,255,255,0.28); }
+.s72-lb-prev { left: 12px; }
+.s72-lb-next { right: 12px; }
+.s72-lb-arrow:disabled { opacity: 0.2; cursor: default; }
+
+/* 圆点指示器 */
+.s72-lb-dots {
+  display: flex;
+  gap: 6px;
+  padding: 14px 0 20px;
+  flex-shrink: 0;
+}
+.s72-lb-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.35);
+  transition: background 0.2s, transform 0.2s;
+}
+.s72-lb-dot.s72-active {
+  background: #fff;
+  transform: scale(1.3);
+}
+
+/* ── 抽屉内悬浮返回按钮（醒目版）── */
+.s72-drawer-float-back {
+  position: sticky;
+  bottom: 0;
+  left: 0; right: 0;
+  padding: 10px 16px 24px;
+  background: linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.98) 28%, #fff 100%);
+  flex-shrink: 0;
+  z-index: 10;
+}
+.s72-drawer-float-back button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  background: #ff3a2d;
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  padding: 16px 20px;
+  font-size: 17px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  letter-spacing: 0.01em;
+  box-shadow: 0 6px 24px rgba(255,58,45,0.45);
+  transition: background 0.18s, transform 0.13s, box-shadow 0.18s;
+  -webkit-tap-highlight-color: transparent;
+  animation: s72-pulse 2.4s ease-in-out infinite;
+}
+@keyframes s72-pulse {
+  0%, 100% { box-shadow: 0 6px 24px rgba(255,58,45,0.45); }
+  50%       { box-shadow: 0 6px 36px rgba(255,58,45,0.75); }
+}
+.s72-drawer-float-back button:hover  { background: #e02d22; transform: translateY(-1px); }
+.s72-drawer-float-back button:active { transform: scale(0.97); animation: none; }
+
+/* ── 轮播底部返回按钮 ── */
+.s72-lb-back-bar {
+  width: 100%;
+  padding: 0 20px 28px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+.s72-lb-back-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  background: #ff3a2d;
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  padding: 16px 20px;
+  font-size: 17px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  letter-spacing: 0.01em;
+  box-shadow: 0 6px 24px rgba(255,58,45,0.5);
+  transition: background 0.18s, transform 0.13s;
+  -webkit-tap-highlight-color: transparent;
+  animation: s72-pulse 2.4s ease-in-out infinite;
+}
+.s72-lb-back-btn:hover  { background: #e02d22; transform: translateY(-1px); }
+.s72-lb-back-btn:active { transform: scale(0.97); animation: none; }
+</style>
+
+<!-- 全屏图片轮播 -->
+<div class="s72-lightbox" id="s72Lightbox" role="dialog" aria-modal="true">
+  <button type="button" class="s72-lightbox-close" id="s72LbClose" aria-label="关闭">✕</button>
+  <button type="button" class="s72-lb-arrow s72-lb-prev" id="s72LbPrev" aria-label="上一张">‹</button>
+  <div class="s72-lightbox-track-wrap">
+    <div class="s72-lightbox-track" id="s72LbTrack"></div>
+  </div>
+  <button type="button" class="s72-lb-arrow s72-lb-next" id="s72LbNext" aria-label="下一张">›</button>
+  <div class="s72-lb-dots" id="s72LbDots"></div>
+  <!-- 底部醒目返回按钮 -->
+  <div class="s72-lb-back-bar">
+    <button type="button" class="s72-lb-back-btn" id="s72LbBackBtn">
+      <svg width="10" height="16" viewBox="0 0 10 16" fill="none">
+        <path d="M8.5 1L1.5 8L8.5 15" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      返回选购界面
+    </button>
+  </div>
+</div>
+
+<!-- 抽屉遮罩 + 抽屉主体 -->
+<div class="s72-drawer-overlay" id="s72Overlay"></div>
+<div class="s72-drawer" id="s72Drawer">
+  <div class="s72-drawer-handle"></div>
+  <div class="s72-drawer-header">
+    <button type="button" class="s72-drawer-back" id="s72DrawerBack">
+      <svg width="9" height="14" viewBox="0 0 10 16" fill="none">
+        <path d="M8.5 1L1.5 8L8.5 15" stroke="#86868b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span style="color:#86868b;font-size:14px;">返回</span>
+    </button>
+    <div class="s72-drawer-title" id="s72DrawerTitle"></div>
+  </div>
+  <div class="s72-drawer-body" id="s72DrawerBody"></div>
+  <!-- 悬浮返回按钮（始终可见） -->
+  <div class="s72-drawer-float-back">
+    <button type="button" id="s72FloatBack">
+      <svg width="10" height="16" viewBox="0 0 10 16" fill="none">
+        <path d="M8.5 1L1.5 8L8.5 15" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      返回选购界面
+    </button>
+  </div>
+</div>
+
+<!-- 主选购 UI -->
+<div class="s72-wrap">
+
+  <!-- 工具模块 1-3 -->
+  <div class="s72-section-label">选择工具模块</div>
+
+  <div class="s72-tool-card s72-active" data-tool="pliers">
+    <div class="s72-thumb" data-lightbox="pliers">
+      <span class="s72-thumb-placeholder">🔧</span>
+    </div>
+    <div class="s72-card-body">
+      <div class="s72-card-name">多功能钳子</div>
+      <div class="s72-card-sub">Multi-Function Pliers · 精钢锻造</div>
+      <button type="button" class="s72-detail-btn" data-detail="pliers">查看详情 →</button>
+    </div>
+    <div class="s72-check"></div>
+  </div>
+
+  <div class="s72-tool-card s72-active" data-tool="wrench">
+    <div class="s72-thumb" data-lightbox="wrench">
+      <span class="s72-thumb-placeholder">🔩</span>
+    </div>
+    <div class="s72-card-body">
+      <div class="s72-card-name">多功能扳手</div>
+      <div class="s72-card-sub">Multi-Function Wrench · 快速调节</div>
+      <button type="button" class="s72-detail-btn" data-detail="wrench">查看详情 →</button>
+    </div>
+    <div class="s72-check"></div>
+  </div>
+
+  <div class="s72-tool-card s72-active" data-tool="axe">
+    <div class="s72-thumb" data-lightbox="axe">
+      <span class="s72-thumb-placeholder">🪓</span>
+    </div>
+    <div class="s72-card-body">
+      <div class="s72-card-name">多功能斧头</div>
+      <div class="s72-card-sub">Desert Breacher · 旗舰战术款</div>
+      <button type="button" class="s72-detail-btn" data-detail="axe">查看详情 →</button>
+    </div>
+    <div class="s72-check"></div>
+  </div>
+
+  <!-- 模块 4：包装 -->
+  <div class="s72-section-label">包装选择</div>
+  <div class="s72-option-row">
+    <div class="s72-option-card s72-active" data-pkg="standard">
+      <div class="s72-opt-icon">📦</div>
+      <div class="s72-opt-name">标准包装</div>
+      <div class="s72-opt-sub">环保纸盒<br>安全防护</div>
+    </div>
+    <div class="s72-option-card s72-locked" id="s72GiftCard" data-pkg="giftbox">
+      <div class="s72-opt-icon">🎁</div>
+      <div class="s72-opt-name">精英礼盒</div>
+      <div class="s72-opt-sub">绒面 EVA<br>磁吸翻盖</div>
+    </div>
+  </div>
+  <div class="s72-unlock-hint" id="s72UnlockHint">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+      <path d="M18 11H6V8C6 5.24 8.24 3 11 3H13C15.76 3 18 5.24 18 8V11Z" stroke="#ff3b30" stroke-width="2"/>
+      <rect x="4" y="11" width="16" height="11" rx="2" stroke="#ff3b30" stroke-width="2"/>
+    </svg>
+    选齐三件工具即可解锁精英礼盒
+  </div>
+
+  <!-- 模块 5：运费 -->
+  <div class="s72-section-label">配送方式</div>
+  <div class="s72-option-row">
+    <div class="s72-option-card s72-active" data-ship="standard">
+      <div class="s72-opt-icon">🚚</div>
+      <div class="s72-opt-name">默认快递</div>
+      <div class="s72-opt-sub">7–12 工作日<br>标准配送</div>
+    </div>
+    <div class="s72-option-card" data-ship="express">
+      <div class="s72-opt-icon">⚡</div>
+      <div class="s72-opt-name">加急特快</div>
+      <div class="s72-opt-sub">3–5 工作日<br>优先处理</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- 详情数据（每个工具一个 template，方便后续填图/视频/参数）-->
+<script type="application/json" id="s72DetailData">
+{
+  "pliers": {
+    "title": "多功能钳子",
+    "subtitle": "Multi-Function Pliers",
+    "videoUrl": "",
+    "images": [],
+    "features": [
+      "精钢锻造，硬度 HRC 56–58",
+      "22 合 1 多功能集成",
+      "一键折叠，单手操作",
+      "人体工学防滑握柄",
+      "符合航空携带规格"
+    ],
+    "specs": [
+      ["材质", "不锈钢 440C"],
+      ["展开长度", "18.5 cm"],
+      ["折叠长度", "10.5 cm"],
+      ["重量", "约 210 g"],
+      ["功能数", "22 合 1"],
+      ["表面处理", "哑黑磷化涂层"]
+    ]
+  },
+  "wrench": {
+    "title": "多功能扳手",
+    "subtitle": "Multi-Function Wrench",
+    "videoUrl": "",
+    "images": [],
+    "features": [
+      "高强度合金钢，耐腐蚀",
+      "可调节开口，适配 6–22mm 螺母",
+      "内置刮刀 / 撬杆 / 锉刀",
+      "超薄设计，随身携带",
+      "符合 EDC 日常使用标准"
+    ],
+    "specs": [
+      ["材质", "高强度合金钢"],
+      ["长度", "15.2 cm"],
+      ["开口范围", "6–22 mm"],
+      ["重量", "约 155 g"],
+      ["功能数", "8 合 1"],
+      ["表面处理", "镜面抛光"]
+    ]
+  },
+  "axe": {
+    "title": "多功能斧头",
+    "subtitle": "Desert Breacher — Tactical Axe",
+    "videoUrl": "",
+    "images": [],
+    "features": [
+      "7CR17MOV 高碳不锈钢斧刃",
+      "破窗锤 / 绳割器 / 撬棍三合一",
+      "G10 玻纤手柄，防滑耐磨",
+      "哑黑战术涂层，防反光",
+      "战术挂扣设计，可挂背包外侧"
+    ],
+    "specs": [
+      ["刃材", "7CR17MOV 高碳钢"],
+      ["全长", "26 cm"],
+      ["头重", "约 320 g"],
+      ["整体重量", "约 480 g"],
+      ["功能数", "6 合 1"],
+      ["手柄", "G10 玻纤 + 橡胶覆层"]
+    ]
+  }
+}
+</script>
+
+<script>
+(function () {
+  /* ─── 数据 ─── */
+  const detailData = JSON.parse(document.getElementById('s72DetailData').textContent);
+
+  /* ─── 工具卡片切换（点缩略图不触发切换）─── */
+  document.querySelectorAll('.s72-tool-card').forEach(card => {
+    card.addEventListener('click', e => {
+      if (e.target.classList.contains('s72-detail-btn')) return;
+      if (e.target.closest('[data-lightbox]')) return; /* 点缩略图不切换选中 */
+      card.classList.toggle('s72-active');
+      syncGiftBox();
+    });
+  });
+
+  function syncGiftBox() {
+    const activeCount = document.querySelectorAll('.s72-tool-card.s72-active').length;
+    const giftCard    = document.getElementById('s72GiftCard');
+    const hint        = document.getElementById('s72UnlockHint');
+    const allSelected = activeCount === 3;
+    if (allSelected) {
+      giftCard.classList.remove('s72-locked');
+      hint.classList.add('s72-hidden');
+    } else {
+      giftCard.classList.add('s72-locked');
+      hint.classList.remove('s72-hidden');
+      if (giftCard.classList.contains('s72-active')) {
+        giftCard.classList.remove('s72-active');
+        document.querySelector('[data-pkg="standard"]').classList.add('s72-active');
+      }
+    }
+  }
+  syncGiftBox();
+
+  /* ─── 双列选项互斥 ─── */
+  ['pkg', 'ship'].forEach(group => {
+    document.querySelectorAll(`[data-${group}]`).forEach(card => {
+      card.addEventListener('click', () => {
+        if (card.classList.contains('s72-locked')) return;
+        document.querySelectorAll(`[data-${group}]`)
+          .forEach(c => c.classList.remove('s72-active'));
+        card.classList.add('s72-active');
+      });
+    });
+  });
+
+  /* ════════════════════════════════════════
+     全屏图片轮播 (Lightbox)
+  ════════════════════════════════════════ */
+  const lightbox  = document.getElementById('s72Lightbox');
+  const lbTrack   = document.getElementById('s72LbTrack');
+  const lbDots    = document.getElementById('s72LbDots');
+  const lbPrev    = document.getElementById('s72LbPrev');
+  const lbNext    = document.getElementById('s72LbNext');
+  const lbClose   = document.getElementById('s72LbClose');
+  let lbIndex = 0;
+  let lbTotal = 0;
+
+  function buildLightbox(images, emoji, startIndex) {
+    lbTrack.innerHTML = '';
+    lbDots.innerHTML  = '';
+    lbIndex = startIndex || 0;
+    lbTotal = images.length;
+
+    images.forEach((src, i) => {
+      const slide = document.createElement('div');
+      slide.className = 's72-lightbox-slide';
+      if (src) {
+        slide.innerHTML = `<img src="${src}" alt="产品图 ${i+1}">`;
+      } else {
+        slide.innerHTML = `<div class="s72-lb-placeholder">${emoji}</div>`;
+      }
+      lbTrack.appendChild(slide);
+
+      const dot = document.createElement('div');
+      dot.className = 's72-lb-dot' + (i === lbIndex ? ' s72-active' : '');
+      lbDots.appendChild(dot);
+    });
+
+    updateLbPosition(false);
+    lightbox.classList.add('s72-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function updateLbPosition(animate) {
+    lbTrack.style.transition = animate === false ? 'none' : 'transform 0.36s cubic-bezier(0.32,0.72,0,1)';
+    lbTrack.style.transform  = `translateX(-${lbIndex * 100}%)`;
+    document.querySelectorAll('.s72-lb-dot').forEach((d, i) => {
+      d.classList.toggle('s72-active', i === lbIndex);
+    });
+    lbPrev.disabled = lbIndex === 0;
+    lbNext.disabled = lbIndex === lbTotal - 1;
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('s72-open');
+    document.body.style.overflow = '';
+  }
+
+  lbPrev.addEventListener('click', () => { if (lbIndex > 0) { lbIndex--; updateLbPosition(); } });
+  lbNext.addEventListener('click', () => { if (lbIndex < lbTotal - 1) { lbIndex++; updateLbPosition(); } });
+  lbClose.addEventListener('click', closeLightbox);
+  document.getElementById('s72LbBackBtn').addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+
+  /* 触摸滑动轮播 */
+  let lbTouchX = 0;
+  lbTrack.addEventListener('touchstart', e => { lbTouchX = e.touches[0].clientX; }, { passive: true });
+  lbTrack.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - lbTouchX;
+    if (dx < -50 && lbIndex < lbTotal - 1) { lbIndex++; updateLbPosition(); }
+    if (dx >  50 && lbIndex > 0)           { lbIndex--; updateLbPosition(); }
+  }, { passive: true });
+
+  /* 键盘支持 */
+  document.addEventListener('keydown', e => {
+    if (!lightbox.classList.contains('s72-open')) return;
+    if (e.key === 'ArrowLeft'  && lbIndex > 0)            { lbIndex--; updateLbPosition(); }
+    if (e.key === 'ArrowRight' && lbIndex < lbTotal - 1)  { lbIndex++; updateLbPosition(); }
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  /* 缩略图点击 → 打开轮播 */
+  const emojiMap = { pliers: '🔧', wrench: '🔩', axe: '🪓' };
+  document.querySelectorAll('[data-lightbox]').forEach(thumb => {
+    thumb.addEventListener('click', e => {
+      e.stopPropagation();
+      const key    = thumb.dataset.lightbox;
+      const d      = detailData[key];
+      if (!d) return;
+      /* 用详情数据里的 images；无图则显示 3 张 emoji 占位 */
+      const imgs   = (d.images && d.images.length) ? d.images : [null, null, null];
+      buildLightbox(imgs, emojiMap[key] || '📦', 0);
+    });
+  });
+
+  /* ════════════════════════════════════════
+     抽屉
+  ════════════════════════════════════════ */
+  const overlay    = document.getElementById('s72Overlay');
+  const drawer     = document.getElementById('s72Drawer');
+  const drawerTitle= document.getElementById('s72DrawerTitle');
+  const drawerBody = document.getElementById('s72DrawerBody');
+  const backBtn    = document.getElementById('s72DrawerBack');
+  const floatBack  = document.getElementById('s72FloatBack');
+
+  function openDrawer(key) {
+    const d = detailData[key];
+    if (!d) return;
+
+    drawerTitle.textContent = d.title;
+
+    /* 视频区 */
+    let videoHTML = '';
+    if (d.videoUrl) {
+      const isYT = d.videoUrl.includes('youtu');
+      videoHTML = isYT
+        ? `<div class="s72-detail-video"><iframe src="${d.videoUrl}" allowfullscreen></iframe></div>`
+        : `<div class="s72-detail-video"><video src="${d.videoUrl}" controls playsinline></video></div>`;
+    } else {
+      videoHTML = `<div class="s72-video-placeholder">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="10" stroke="#555" stroke-width="1.5"/>
+          <polygon points="10,8 18,12 10,16" fill="#fff"/>
+        </svg>
+        <span>演示视频即将上线</span>
+      </div>`;
+    }
+
+    /* 图片区（网格，可点击放大） */
+    let imgHTML = '<div class="s72-detail-images">';
+    if (d.images && d.images.length) {
+      d.images.forEach((url, i) => {
+        imgHTML += `<div class="s72-detail-img-slot" style="cursor:zoom-in" data-lb-key="${key}" data-lb-idx="${i}">
+          <img src="${url}" loading="lazy"></div>`;
+      });
+    } else {
+      for (let i = 0; i < 4; i++) {
+        imgHTML += `<div class="s72-detail-img-slot">产品图 ${i+1}</div>`;
+      }
+    }
+    imgHTML += '</div>';
+
+    /* 卖点 */
+    const featHTML = '<ul class="s72-feature-list">'
+      + d.features.map(f => `<li>${f}</li>`).join('')
+      + '</ul>';
+
+    /* 规格 */
+    const specHTML = '<table class="s72-spec-table">'
+      + d.specs.map(([k,v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join('')
+      + '</table>';
+
+    drawerBody.innerHTML = `
+      ${videoHTML}
+      ${imgHTML}
+      <div class="s72-detail-section-title">核心卖点</div>
+      ${featHTML}
+      <div class="s72-detail-section-title">产品参数</div>
+      ${specHTML}
+    `;
+    drawerBody.scrollTop = 0;
+
+    /* 抽屉内图片也可点击放大 */
+    drawerBody.querySelectorAll('[data-lb-key]').forEach(slot => {
+      slot.addEventListener('click', () => {
+        const k   = slot.dataset.lbKey;
+        const idx = parseInt(slot.dataset.lbIdx, 10);
+        const imgs = detailData[k].images;
+        buildLightbox(imgs, emojiMap[k] || '📦', idx);
+      });
+    });
+
+    overlay.classList.add('s72-open');
+    drawer.classList.add('s72-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDrawer() {
+    overlay.classList.remove('s72-open');
+    drawer.classList.remove('s72-open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.s72-detail-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      openDrawer(btn.dataset.detail);
+    });
+  });
+
+  backBtn.addEventListener('click', closeDrawer);
+  floatBack.addEventListener('click', closeDrawer);
+  overlay.addEventListener('click', closeDrawer);
+
+  /* 手势下滑关闭抽屉 */
+  let startY = 0;
+  drawer.addEventListener('touchstart', e => { startY = e.touches[0].clientY; }, { passive: true });
+  drawer.addEventListener('touchend', e => {
+    if (e.changedTouches[0].clientY - startY > 60) closeDrawer();
+  }, { passive: true });
+
+  /* Shopify 动态 Section 重载支持 */
+  document.addEventListener('shopify:section:load', () => { syncGiftBox(); });
+})();
+</script>

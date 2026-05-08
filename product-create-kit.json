@@ -1,0 +1,38 @@
+{
+  "product": {
+    "title": "72-Hour Kit — Complete 3-Tool Survival System",
+    "body_html": "<h3>The full Survival72 lineup. Three tools. Six built-in functions. One disaster-ready package.</h3><p>The 72-Hour Kit pairs all three Survival72 multi-tools — Desert Breacher axe, Roadside Fix wrench, and Field Precision pliers — into a single package built around the first 72 hours of any emergency: vehicle breakdown, off-road extraction, post-storm recovery, or a full grid-down scenario.</p><h4>What's included (all variants)</h4><ul><li><strong>1 &times; Desert Breacher</strong> — Multi-function tactical axe with <strong>built-in 7.2cm folding knife</strong> (vehicle breach, wood splitting, hammer, claw)</li><li><strong>1 &times; Roadside Fix</strong> — Multi-function tactical wrench with <strong>built-in 7.5cm folding knife</strong> (8mm-19mm hex, plier, wire cutter)</li><li><strong>1 &times; Field Precision</strong> — Stainless steel multi-function pliers with <strong>7.2cm folding knife</strong> (needle-nose, wire cutter, bottle opener)</li><li><strong>3 &times; Carry sheaths/pouches</strong> (MOLLE-compatible, belt-loop ready)</li><li><strong>1 &times; Survival72 Quick-Reference Card</strong></li></ul><h4>Variant comparison</h4><table><tr><th></th><th>Standard</th><th>Gift Edition</th></tr><tr><td><strong>Packaging</strong></td><td>Cardboard box</td><td>Magnetic clamshell gift box (2mm gray board + EVA insert)</td></tr><tr><td><strong>Suited for</strong></td><td>Self-use, daily carry, vehicle stash</td><td>Birthdays, retirement gifts, corporate gifting, holidays</td></tr><tr><td><strong>Price</strong></td><td>$119</td><td>$145</td></tr><tr><td><strong>You save vs separate</strong></td><td>$24</td><td>—</td></tr></table><h4>Why the 72-hour focus</h4><p>The first 72 hours of any emergency is the critical window when first responders are stretched thin and you have to rely on what's already in your hand. This kit covers the three function categories that handle <strong>over 90%</strong> of common emergency tasks: <strong>breaking</strong> (windows, locks, debris), <strong>fastening</strong> (bolts, hose clamps, mechanical repair), and <strong>precision work</strong> (cordage, wires, fine grip).</p><h4>Limited-time bonus</h4><p>Order before <strong>May 15, 2026</strong> and receive a <strong>free pair of Desert Grip tactical gloves</strong> (heavy-duty leather palm, breathable mesh back) — a $19 add-on, included while supplies last.</p><h4>Specifications</h4><table><tr><td><strong>Total Weight</strong></td><td>1.08 kg (Standard) / 1.27 kg (Gift Edition with packaging)</td></tr><tr><td><strong>Combined Materials</strong></td><td>3CR13 hardened steel (axe + wrench, black phosphate) + Stainless steel (pliers, natural silver)</td></tr><tr><td><strong>Total Folding Knife Blades</strong></td><td>3 (7.2 cm + 7.5 cm + 7.2 cm)</td></tr></table><h4>Shipping &amp; Returns</h4><p>Free shipping on orders over $35. Cash on Delivery available across UAE, Saudi Arabia, Qatar, Kuwait, and Oman. 30-day return window from delivery date.</p>",
+    "vendor": "Survival72",
+    "product_type": "Bundles",
+    "tags": "Bundle, 72-Hour Kit, Complete Set, Gift, Survival, Desert-Tested, Multi-Tool",
+    "status": "active",
+    "published": true,
+    "options": [{"name": "Edition", "values": ["Standard", "Gift Edition"]}],
+    "variants": [
+      {
+        "option1": "Standard",
+        "price": "119.00",
+        "compare_at_price": "159.00",
+        "sku": "S72-KIT-STD",
+        "weight": 1080,
+        "weight_unit": "g",
+        "inventory_management": "shopify",
+        "inventory_policy": "deny",
+        "requires_shipping": true,
+        "taxable": true
+      },
+      {
+        "option1": "Gift Edition",
+        "price": "145.00",
+        "compare_at_price": "199.00",
+        "sku": "S72-KIT-GIFT",
+        "weight": 1270,
+        "weight_unit": "g",
+        "inventory_management": "shopify",
+        "inventory_policy": "deny",
+        "requires_shipping": true,
+        "taxable": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "product": {
+    "title": "Mechanic's EDC — Wrench + Pliers Bundle",
+    "body_html": "<h3>The off-road mechanic's pocket.</h3><p>The combo built for desert off-roading, trailer breakdowns, and every roadside repair scenario. Adjustable wrench profiles + precision pliers = handle 90% of emergency mechanical work without a full toolbox.</p><h4>What's included</h4><ul><li><strong>1 &times; Roadside Fix</strong> — Multi-function tactical wrench (8mm-19mm hex, plier function, wire cutter)</li><li><strong>1 &times; Field Precision</strong> — Multi-function pliers (needle-nose, wire cutter, folding knife)</li><li><strong>2 &times; Belt-Loop Pouches</strong></li><li><strong>1 &times; Survival72 Quick-Reference Card</strong></li></ul><h4>Why this combo</h4><p>Most off-road mechanical failures come down to <strong>fasteners that need turning</strong> (wheel nuts, hose clamps, undercarriage bolts) and <strong>wires/cables that need cutting or stripping</strong> (battery terminals, broken sensor leads). This kit covers both — packed flat, no rattle, no extra weight.</p><h4>Specifications</h4><table><tr><td><strong>Total Weight</strong></td><td>595 g</td></tr><tr><td><strong>Combined Materials</strong></td><td>3CR13 hardened steel (wrench, black phosphate) + Stainless steel (pliers, natural silver finish)</td></tr><tr><td><strong>Total Folding Knife Blades</strong></td><td>2 (7.5 cm in wrench + 7.2 cm in pliers)</td></tr><tr><td><strong>Packaging</strong></td><td>Standard cardboard box</td></tr></table><h4>Save $29 vs buying separately</h4><p>Bundle price: $82 (vs $94 if bought as individual items). Free shipping on orders over $35.</p><h4>Shipping &amp; Returns</h4><p>Cash on Delivery available across UAE, Saudi Arabia, Qatar, Kuwait, and Oman. 30-day return window from delivery date.</p>",
+    "vendor": "Survival72",
+    "product_type": "Bundles",
+    "tags": "Bundle, Mechanic Kit, Off-Road, Multi-Tool, Desert-Tested",
+    "status": "active",
+    "published": true,
+    "options": [{"name": "Title", "values": ["Default"]}],
+    "variants": [{
+      "option1": "Default",
+      "price": "82.00",
+      "compare_at_price": "111.00",
+      "sku": "S72-WRENCH-PLIERS",
+      "weight": 595,
+      "weight_unit": "g",
+      "inventory_management": "shopify",
+      "inventory_policy": "deny",
+      "requires_shipping": true,
+      "taxable": true
+    }]
+  }
+}

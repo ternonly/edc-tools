@@ -1,0 +1,7 @@
+{
+  "name": "COMPOSIO_SEARCH_TOOLS",
+  "arguments": {
+    "use_case": "publish image to instagram",
+    "toolkits": ["instagram"]
+  }
+}

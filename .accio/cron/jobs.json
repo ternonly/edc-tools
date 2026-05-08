@@ -1,0 +1,109 @@
+{
+  "version": 2,
+  "jobs": [
+    {
+      "id": "cron-1776565541558-hobsv0zm",
+      "name": "Daily Platform Compliance Check",
+      "enabled": true,
+      "deleteAfterRun": false,
+      "createdAtMs": 1776565541558,
+      "updatedAtMs": 1778236395054,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 30 8 * * *",
+        "tz": "Asia/Shanghai"
+      },
+      "payload": {
+        "kind": "agent",
+        "message": "Search for the latest 2026 updates and critical compliance rules for: 1. Google Search Essentials (SEO), 2. Instagram Community & Recommendation Guidelines, 3. X (Twitter) Rules. Focus on rules relevant to e-commerce marketing and automation. Write a concise summary to project/compliance-log.md, appending with a date header. Highlight any new restrictions.",
+        "agent": "browser"
+      },
+      "state": {
+        "nextRunAtMs": 1778286600000,
+        "lastRunAtMs": 1778236394917,
+        "lastStatus": "error",
+        "lastDurationMs": 0,
+        "lastError": "cron agent runner is not initialized"
+      },
+      "target": {
+        "type": "conversation",
+        "conversationId": "CID-13445659U1775824-F22657-5166-75B1C8"
+      },
+      "workspacePath": "C:\\Users\\Administrator\\.accio\\accounts\\1754445659\\agents\\DID-0D58EF-FA849A\\project",
+      "createdBy": {
+        "source": "agent",
+        "actorId": "DID-0D58EF-FA849A"
+      }
+    },
+    {
+      "id": "cron-1777331622481-42770rj3",
+      "name": "Survival72 每日 EDC 互动提醒",
+      "description": "合规要求：每天 10:00 CST 提醒并执行手动 EDC 互动，避免账号被识别为广播账号",
+      "enabled": true,
+      "deleteAfterRun": false,
+      "createdAtMs": 1777331622481,
+      "updatedAtMs": 1778236395061,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 10 * * *",
+        "tz": "Asia/Shanghai"
+      },
+      "payload": {
+        "kind": "agent",
+        "message": "每日 EDC 互动提醒：现在执行 Survival72 合规互动任务。\n\n1. 在 X 上搜 #EDC / #EDCKnife / #PrepperLife，挑 2-3 条非政治优质创作者帖子，手动点赞 + 留 10-25 字真人观点\n2. 在 IG 上做同样动作\n3. 把 6 条互动链接 + 时间戳追加到 project/daily-engagement-log.md\n\n参考留言模板：project/daily-engagement-log.md\n候选账号已列出，可现场搜索新账号。\n严禁脚本化、严禁政治、严禁推销 Survival72。\n\n开始执行。",
+        "agent": "main"
+      },
+      "state": {
+        "nextRunAtMs": 1778292000000,
+        "lastRunAtMs": 1778236394964,
+        "lastStatus": "error",
+        "lastDurationMs": 0,
+        "lastError": "cron agent runner is not initialized"
+      },
+      "target": {
+        "type": "conversation",
+        "conversationId": "CID-13445659U1775824-F22657-5166-75B1C8"
+      },
+      "workspacePath": "C:\\Users\\Administrator\\.accio\\accounts\\1754445659\\agents\\DID-0D58EF-FA849A\\project",
+      "createdBy": {
+        "source": "agent",
+        "actorId": "DID-0D58EF-FA849A"
+      }
+    },
+    {
+      "id": "cron-1777331687055-0lfhq1al",
+      "name": "Survival72 每日评论区关注粉丝",
+      "description": "每日 10:30 CST 提醒执行评论区精准引流：X 10 个、IG 5-10 个",
+      "enabled": true,
+      "deleteAfterRun": false,
+      "createdAtMs": 1777331687055,
+      "updatedAtMs": 1778236395073,
+      "schedule": {
+        "kind": "cron",
+        "expr": "30 10 * * *",
+        "tz": "Asia/Shanghai"
+      },
+      "payload": {
+        "kind": "agent",
+        "message": "每日评论区关注粉丝任务：\n\n1. 选今日 2-3 个目标创作者（@everydaycarry / @itstacticool / @bushcraftbartons / #EDC 当日 Top 3 帖）\n2. 进评论区，按 5 项筛选标准（EDC兴趣/30天活跃/粉丝50-5000/非商家/无政治）逐个点开评论者主页\n3. X 关注 10 个、IG 关注 5-10 个；每个关注后立刻点赞+留言其最新 EDC 帖\n4. 间隔 30-60 秒一个，绝不脚本化\n5. 记录到 project/daily-follow-log.md\n\n模板和候选池见 project/daily-follow-log.md\n\n开始执行。",
+        "agent": "main"
+      },
+      "state": {
+        "nextRunAtMs": 1778293800000,
+        "lastRunAtMs": 1778236395019,
+        "lastStatus": "error",
+        "lastDurationMs": 0,
+        "lastError": "cron agent runner is not initialized"
+      },
+      "target": {
+        "type": "conversation",
+        "conversationId": "CID-13445659U1775824-F22657-5166-75B1C8"
+      },
+      "workspacePath": "C:\\Users\\Administrator\\.accio\\accounts\\1754445659\\agents\\DID-0D58EF-FA849A\\project",
+      "createdBy": {
+        "source": "agent",
+        "actorId": "DID-0D58EF-FA849A"
+      }
+    }
+  ]
+}

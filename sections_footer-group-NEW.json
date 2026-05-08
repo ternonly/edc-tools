@@ -1,0 +1,320 @@
+{
+  "type": "footer",
+  "name": "Footer",
+  "sections": {
+    "footer_m9NzUG": {
+      "type": "footer",
+      "blocks": {
+        "group_brand": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "flex-start",
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 12,
+            "width": "fit",
+            "custom_width": 30,
+            "width_mobile": "fill",
+            "height": "fit",
+            "inherit_color_scheme": true,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "text_brand_h": {
+              "type": "text",
+              "settings": {
+                "text": "<h3>SURVIVAL72</h3>",
+                "alignment": "left",
+                "type_preset": "h3",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.4rem",
+                "letter_spacing": "0.1em",
+                "case": "uppercase",
+                "color": "var(--color-foreground)"
+              },
+              "blocks": {}
+            },
+            "text_brand_tag": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Desert-tested EDC tools for families across the GCC. Three tools. One system. Zero compromise.</p>",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "0.9rem",
+                "line_height": "1.5",
+                "color": "var(--color-foreground)"
+              },
+              "blocks": {}
+            },
+            "text_brand_trust": {
+              "type": "text",
+              "settings": {
+                "text": "<p><strong>ISO 9001</strong> &middot; <strong>MIL-STD-810H</strong> &middot; <strong>UAE Trade License Verified</strong></p>",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "0.78rem",
+                "color": "var(--color-foreground)"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": ["text_brand_h", "text_brand_tag", "text_brand_trust"]
+        },
+        "group_shop": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "flex-start",
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 8,
+            "width": "fit",
+            "width_mobile": "fill",
+            "height": "fit",
+            "inherit_color_scheme": true,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "text_shop_h": {
+              "type": "text",
+              "settings": {
+                "text": "<h4>Shop</h4>",
+                "alignment": "left",
+                "type_preset": "h6",
+                "font": "var(--font-heading--family)",
+                "font_size": "0.85rem",
+                "letter_spacing": "0.1em",
+                "case": "uppercase",
+                "color": "var(--color-foreground)"
+              },
+              "blocks": {}
+            },
+            "text_shop_links": {
+              "type": "text",
+              "settings": {
+                "text": "<p><a href=\"/collections/edc-tools\">EDC Tools</a><br><a href=\"/collections/bundles\">Bundles</a><br><a href=\"/collections/gift-sets\">Gift Sets</a><br><a href=\"/collections/desert-tested\">Desert-Tested</a></p>",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "0.85rem",
+                "line_height": "1.8",
+                "color": "var(--color-foreground)"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": ["text_shop_h", "text_shop_links"]
+        },
+        "group_company": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "flex-start",
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 8,
+            "width": "fit",
+            "width_mobile": "fill",
+            "height": "fit",
+            "inherit_color_scheme": true,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "text_co_h": {
+              "type": "text",
+              "settings": {
+                "text": "<h4>Company</h4>",
+                "alignment": "left",
+                "type_preset": "h6",
+                "font": "var(--font-heading--family)",
+                "font_size": "0.85rem",
+                "letter_spacing": "0.1em",
+                "case": "uppercase",
+                "color": "var(--color-foreground)"
+              },
+              "blocks": {}
+            },
+            "text_co_links": {
+              "type": "text",
+              "settings": {
+                "text": "<p><a href=\"/pages/about\">About</a><br><a href=\"/pages/wholesale\">Wholesale &amp; Custom</a><br><a href=\"/pages/contact\">Contact</a></p>",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "0.85rem",
+                "line_height": "1.8",
+                "color": "var(--color-foreground)"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": ["text_co_h", "text_co_links"]
+        },
+        "group_signup": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "flex-start",
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 8,
+            "width": "fit",
+            "width_mobile": "fill",
+            "height": "fit",
+            "inherit_color_scheme": true,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "text_signup_h": {
+              "type": "text",
+              "settings": {
+                "text": "<h4>Field Notes</h4>",
+                "alignment": "left",
+                "type_preset": "h6",
+                "font": "var(--font-heading--family)",
+                "font_size": "0.85rem",
+                "letter_spacing": "0.1em",
+                "case": "uppercase",
+                "color": "var(--color-foreground)"
+              },
+              "blocks": {}
+            },
+            "text_signup_d": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Monthly preparedness briefings + early access to new gear releases. No spam. No politics.</p>",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "0.85rem",
+                "line_height": "1.5",
+                "color": "var(--color-foreground)"
+              },
+              "blocks": {}
+            },
+            "email_signup_inline": {
+              "type": "email-signup",
+              "settings": {
+                "width": "fill",
+                "inherit_color_scheme": true,
+                "heading": "",
+                "heading_preset": "h6",
+                "border_style": "all",
+                "border_width": 1,
+                "border_radius": 0,
+                "input_type_preset": "paragraph",
+                "style_class": "button",
+                "display_type": "arrow",
+                "label": "Subscribe",
+                "integrated_button": true,
+                "button_type_preset": "paragraph",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": ["text_signup_h", "text_signup_d", "email_signup_inline"]
+        }
+      },
+      "block_order": [
+        "group_brand",
+        "group_shop",
+        "group_company",
+        "group_signup"
+      ],
+      "name": "t:names.footer",
+      "settings": {
+        "section_width": "page-width",
+        "gap": 40,
+        "color_scheme": "scheme-2",
+        "padding-block-start": 64,
+        "padding-block-end": 40
+      }
+    },
+    "footer_utilities_jLGE8U": {
+      "type": "footer-utilities",
+      "blocks": {
+        "footer_copyright_jweRK8": {
+          "type": "footer-copyright",
+          "settings": {
+            "show_powered_by": false,
+            "font_size": "0.75rem",
+            "case": "none"
+          },
+          "blocks": {}
+        },
+        "footer_policy_list_VCdnpa": {
+          "type": "footer-policy-list",
+          "settings": {
+            "font_size": "0.75rem",
+            "case": "none"
+          },
+          "blocks": {}
+        },
+        "social_links_Ew63Kq": {
+          "type": "social-links",
+          "settings": {
+            "facebook_url": "",
+            "instagram_url": "https://www.instagram.com/survival72bob",
+            "youtube_url": "",
+            "tiktok_url": "",
+            "twitter_url": "https://x.com/Survival72EDC",
+            "threads_url": "",
+            "linkedin_url": "",
+            "bluesky_url": "",
+            "snapchat_url": "",
+            "pinterest_url": "",
+            "tumblr_url": "",
+            "vimeo_url": "",
+            "custom_url": ""
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "footer_copyright_jweRK8",
+        "footer_policy_list_VCdnpa",
+        "social_links_Ew63Kq"
+      ],
+      "name": "t:names.utilities",
+      "settings": {
+        "section_width": "page-width",
+        "gap": 24,
+        "divider_thickness": 1,
+        "color_scheme": "scheme-2",
+        "padding-block-start": 20,
+        "padding-block-end": 32
+      }
+    }
+  },
+  "order": [
+    "footer_m9NzUG",
+    "footer_utilities_jLGE8U"
+  ]
+}

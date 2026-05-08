@@ -1,0 +1,17 @@
+[
+  {
+    "id": 38599919927341,
+    "alt": null,
+    "position": 1,
+    "product_id": 8487770259501,
+    "created_at": "2026-05-08T19:06:42+08:00",
+    "updated_at": "2026-05-08T19:06:42+08:00",
+    "admin_graphql_api_id": "gid://shopify/MediaImage/29573012422701",
+    "width": 1024,
+    "height": 1024,
+    "src": "https://cdn.shopify.com/s/files/1/0751/9030/4813/files/s72_gift_box_kit-gift-box.jpg?v=1778238402",
+    "variant_ids": [
+      44902746947629
+    ]
+  }
+]

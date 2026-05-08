@@ -1,0 +1,103 @@
+<div id="s72-configurator" style="background: #f9f9f9; padding: 25px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0; font-family: inherit;">
+  <h3 style="margin-top: 0; color: #1a1a1a;">Survival72™ Modular System Configurator</h3>
+  <p style="font-size: 14px; color: #666; margin-bottom: 20px;">Build your custom deployment kit. Discounts apply automatically.</p>
+
+  <div class="s72-modules" style="display: grid; gap: 15px; margin-bottom: 20px;">
+    <label style="display: flex; align-items: center; cursor: pointer; padding: 10px; border: 1px solid #eee; background: #fff; border-radius: 4px;">
+      <input type="checkbox" class="s72-module" data-price="52" data-name="Pliers" style="width: 20px; height: 20px; margin-right: 15px;">
+      <div>
+        <span style="font-weight: 700; display: block;">Pliers Module (Module 01)</span>
+        <span style="font-size: 12px; color: #888;">Precision fix-it & survival grip — $52</span>
+      </div>
+    </label>
+
+    <label style="display: flex; align-items: center; cursor: pointer; padding: 10px; border: 1px solid #eee; background: #fff; border-radius: 4px;">
+      <input type="checkbox" class="s72-module" data-price="42" data-name="Wrench" style="width: 20px; height: 20px; margin-right: 15px;">
+      <div>
+        <span style="font-weight: 700; display: block;">Wrench Module (Module 02)</span>
+        <span style="font-size: 12px; color: #888;">Mechanical adjustment & utility — $42</span>
+      </div>
+    </label>
+
+    <label style="display: flex; align-items: center; cursor: pointer; padding: 10px; border: 1px solid #eee; background: #fff; border-radius: 4px;">
+      <input type="checkbox" class="s72-module" data-price="49" data-name="Axe" style="width: 20px; height: 20px; margin-right: 15px;">
+      <div>
+        <span style="font-weight: 700; display: block;">Breacher Axe (Module 03)</span>
+        <span style="font-size: 12px; color: #888;">Emergency entry & prep — $49</span>
+      </div>
+    </label>
+  </div>
+
+  <div id="elite-gift-section" style="border-top: 1px solid #eee; padding-top: 20px; margin-top: 10px;">
+    <label style="display: flex; align-items: center; cursor: pointer; padding: 15px; border: 2px dashed #C9A96E; background: #fffbf2; border-radius: 4px;">
+      <input type="checkbox" id="elite-box" data-price="29" style="width: 20px; height: 20px; margin-right: 15px;">
+      <div>
+        <span style="font-weight: 700; color: #C9A96E; display: block;">ADD ELITE GIFT BOX (+ $29)</span>
+        <span style="font-size: 12px; color: #6d5b3d;">Premium magnetic clamshell packaging & Field Guide.</span>
+      </div>
+    </label>
+  </div>
+
+  <div style="background: #1a1a1a; color: #fff; padding: 20px; border-radius: 4px; margin-top: 25px; text-align: center;">
+    <div id="price-summary" style="font-size: 14px; color: #aaa; margin-bottom: 5px;">Select modules to see price</div>
+    <div id="total-price" style="font-size: 32px; font-weight: 700;">$0.00</div>
+    <div id="savings-note" style="color: #C9A96E; font-size: 14px; font-weight: 700; margin-top: 5px; height: 20px;"></div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const modules = document.querySelectorAll('.s72-module');
+  const eliteBox = document.getElementById('elite-box');
+  const totalPriceEl = document.getElementById('total-price');
+  const savingsEl = document.getElementById('savings-note');
+  const summaryEl = document.getElementById('price-summary');
+
+  function updatePrice() {
+    let subtotal = 0;
+    let selectedCount = 0;
+    
+    modules.forEach(m => {
+      if (m.checked) {
+        subtotal += parseFloat(m.dataset.price);
+        selectedCount++;
+      }
+    });
+
+    let discount = 0;
+    if (selectedCount === 2) discount = 15;
+    if (selectedCount === 3) discount = 27;
+
+    let total = subtotal - discount;
+    
+    if (eliteBox.checked) {
+      total += parseFloat(eliteBox.dataset.price);
+    }
+
+    totalPriceEl.textContent = '$' + total.toFixed(2);
+    summaryEl.textContent = selectedCount + ' Module(s) selected' + (eliteBox.checked ? ' + Elite Box' : '');
+    
+    if (discount > 0) {
+      savingsEl.textContent = 'SURVIVAL DISCOUNT APPLIED: -$' + discount;
+    } else {
+      savingsEl.textContent = '';
+    }
+    
+    // Update Shopify native price if possible (optional enhancement)
+    const shopifyPrice = document.querySelector('.price-item--regular');
+    if (shopifyPrice) shopifyPrice.textContent = '$' + total.toFixed(2);
+  }
+
+  // Handle URL parameters
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('auto_kit') === 'elite') {
+    modules.forEach(m => m.checked = true);
+    eliteBox.checked = true;
+  }
+
+  modules.forEach(m => m.addEventListener('change', updatePrice));
+  eliteBox.addEventListener('change', updatePrice);
+  
+  updatePrice();
+});
+</script>

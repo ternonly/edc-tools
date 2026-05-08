@@ -1,0 +1,23 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "image_1": "shopify:\/\/shop_images\/hero-banner-final.jpg",
+        "toggle_overlay": true,
+        "color_scheme": "scheme-5",
+        "section_height": "large"
+      }
+    },
+    "featured_configurator": {
+      "type": "featured-product",
+      "settings": {
+        "product": "survival72-modular-configurator"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "featured_configurator"
+  ]
+}
