@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Survival72 — Professional-Grade EDC Tools</title>
+
+<!-- ═══════════════════════════════════════════
+     James Brand Pixel Clone • Survival72™
+     Design System: NB Akademie Std / Roboto
+     Palette: Black, Charcoal, Slate, Bone, White
+     ═══════════════════════════════════════════ -->
+
+<style>
+/* ── RESET ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+/* ── CSS VARIABLES ── */
+:root{
+  --black:#000;
+  --off-black:#111;
+  --charcoal:#333;
+  --slate:#666;
+  --bone:#f5f4f1;
+  --white:#fff;
+  --border:#e6e5e2;
+  --border-dark:#ccc;
+  --gold:#8B7340;
+  --gold-light:#C5A86A;
+  --red:#c41230;
+  --transition:0.25s ease;
+}
+
+/* ── TYPOGRAPHY ── */
+body{
+  font-family:'NB Akademie Std','Helvetica Neue',Helvetica,Arial,sans-serif;
+  color:var(--black);
+  background:var(--white);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  font-weight:400;
+  font-size:16px;
+}
+h1,h2,h3,h4{font-weight:500;font-family:inherit}
+a{color:inherit;text-decoration:none}
+
+/* ── CONTAINERS ── */
+.page-width{max-width:1280px;margin:0 auto;padding:0 40px}
+.page-width--narrow{max-width:960px;margin:0 auto;padding:0 40px}
+@media(max-width:768px){.page-width,.page-width--narrow{padding:0 24px}}
+
+/* ── NAVIGATION ── */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:20px 40px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:transparent;
+  transition:background var(--transition);
+}
+.nav.scrolled{background:rgba(255,255,255,0.95);backdrop-filter:blur(12px)}
+.nav-logo{
+  font-size:18px;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--white);
+  transition:color var(--transition);
+}
+.nav.scrolled .nav-logo,.nav.force-dark .nav-logo{color:var(--black)}
+.nav-links{display:flex;align-items:center;gap:36px}
+.nav-links a{
+  font-size:13px;font-weight:500;letter-spacing:0.5px;
+  color:var(--white);transition:color var(--transition);
+}
+.nav.scrolled .nav-links a,.nav.force-dark .nav-links a{color:var(--black)}
+.nav-links a:hover{opacity:0.7}
+.nav-icon{font-size:18px;line-height:1;cursor:pointer}
+@media(max-width:768px){
+  .nav{padding:16px 24px}
+  .nav-links{gap:20px}
+  .nav-links a{font-size:11px}
+}
+
+/* ── HERO ── */
+.hero{
+  height:100vh;min-height:600px;
+  position:relative;overflow:hidden;
+  background:#1a1a1a;
+  display:flex;align-items:flex-end;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:url('https://cdn.shopify.com/s/files/1/0751/9030/4813/files/hero-banner-final.jpg') center/cover no-repeat;
+  opacity:0.85;
+}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,0.55) 0%,rgba(0,0,0,0.1) 50%);
+}
+.hero-content{
+  position:relative;z-index:2;
+  width:100%;max-width:1280px;margin:0 auto;
+  padding:0 40px 80px;
+}
+.hero-label{
+  font-size:12px;font-weight:500;letter-spacing:2.5px;
+  text-transform:uppercase;color:rgba(255,255,255,0.7);
+  margin-bottom:16px;
+}
+.hero-title{
+  font-size:clamp(32px,5.5vw,64px);font-weight:500;
+  color:var(--white);line-height:1.08;margin-bottom:20px;
+  max-width:700px;
+}
+.hero-subtitle{
+  font-size:18px;color:rgba(255,255,255,0.8);
+  margin-bottom:36px;
+}
+.hero-cta{
+  display:inline-block;color:var(--white);
+  font-size:13px;font-weight:500;letter-spacing:1px;
+  text-transform:uppercase;
+  padding-bottom:4px;border-bottom:1.5px solid rgba(255,255,255,0.5);
+  transition:border-color var(--transition);
+}
+.hero-cta:hover{border-color:var(--white)}
+@media(max-width:768px){
+  .hero-content{padding:0 24px 56px}
+  .hero-title{font-size:28px}
+}
+
+/* ── BRAND STATEMENT ── */
+.brand-statement{
+  padding:120px 0;text-align:center;
+}
+.brand-statement h2{
+  font-size:clamp(24px,3.5vw,38px);
+  font-weight:400;line-height:1.4;
+  max-width:720px;margin:0 auto 24px;
+}
+.brand-statement p{
+  font-size:17px;color:var(--slate);
+  max-width:600px;margin:0 auto;
+  line-height:1.7;
+}
+@media(max-width:768px){.brand-statement{padding:72px 0}}
+
+/* ── SECTION HEADER ── */
+.section-label{
+  font-size:11px;font-weight:500;letter-spacing:2.5px;
+  text-transform:uppercase;color:var(--slate);
+  margin-bottom:16px;
+}
+.section-title{
+  font-size:clamp(26px,4vw,44px);font-weight:500;
+  line-height:1.15;margin-bottom:48px;
+}
+
+/* ── PRODUCT CARDS GRID ── */
+.products-section{padding:0 0 100px}
+.products-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:2px;background:var(--border);
+}
+.products-grid > *{background:var(--white)}
+@media(max-width:768px){.products-grid{grid-template-columns:1fr}}
+
+.product-card{
+  position:relative;overflow:hidden;
+  cursor:pointer;
+}
+.product-card-image{
+  aspect-ratio:4/5;overflow:hidden;background:var(--bone);
+  position:relative;
+}
+.product-card-image img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform 0.5s ease;
+}
+.product-card:hover .product-card-image img{transform:scale(1.03)}
+.product-card-body{padding:28px 0 8px}
+.product-card-name{
+  font-size:17px;font-weight:500;margin-bottom:4px;
+}
+.product-card-desc{
+  font-size:13px;color:var(--slate);margin-bottom:10px;
+  line-height:1.5;
+}
+.product-card-price{
+  font-size:15px;font-weight:500;
+}
+
+/* ── FEATURED CONFIGURATOR (Kit Builder) ── */
+.config-section{
+  background:var(--bone);padding:100px 0;
+}
+.config-inner{max-width:1100px;margin:0 auto;padding:0 40px}
+@media(max-width:768px){.config-inner{padding:0 24px}}
+
+.config-label{
+  font-size:11px;font-weight:500;letter-spacing:2.5px;
+  text-transform:uppercase;color:var(--slate);
+  margin-bottom:12px;
+}
+.config-title{
+  font-size:clamp(28px,4.5vw,48px);font-weight:500;
+  line-height:1.1;margin-bottom:12px;
+}
+.config-subtitle{
+  font-size:16px;color:var(--slate);margin-bottom:48px;
+}
+
+.config-layout{
+  display:grid;grid-template-columns:1fr 1fr;gap:40px;
+}
+@media(max-width:768px){.config-layout{grid-template-columns:1fr;gap:32px}}
+
+/* Preview */
+.config-preview{
+  position:sticky;top:100px;aspect-ratio:1/1;
+  background:var(--white);
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;cursor:zoom-in;
+}
+.config-preview img{
+  width:100%;height:100%;object-fit:cover;
+  opacity:0;transition:opacity 0.35s ease;
+}
+.config-preview img.active{opacity:1}
+.config-preview-hint{
+  font-size:13px;color:var(--slate);text-align:center;
+}
+
+/* Zoom badge */
+.config-zoom-badge{
+  position:absolute;bottom:12px;right:12px;
+  width:32px;height:32px;background:rgba(0,0,0,0.5);
+  border-radius:50%;display:none;align-items:center;
+  justify-content:center;color:var(--white);font-size:16px;
+}
+.config-preview:hover .config-zoom-badge{display:flex}
+
+/* Mode toggle */
+.config-modes{display:flex;gap:1px;margin-bottom:28px;background:var(--border)}
+.config-mode-btn{
+  flex:1;padding:14px;background:var(--white);
+  text-align:center;font-size:11px;font-weight:500;
+  letter-spacing:1px;text-transform:uppercase;
+  border:none;cursor:pointer;font-family:inherit;
+  transition:background var(--transition);
+}
+.config-mode-btn.active{background:var(--black);color:var(--white)}
+
+/* Product selection cards */
+.config-cards{display:flex;flex-direction:column;gap:1px;background:var(--border);margin-bottom:2px}
+.config-tool-card{
+  background:var(--white);padding:16px 20px;
+  display:grid;grid-template-columns:72px 1fr auto;
+  align-items:center;gap:16px;
+  cursor:pointer;transition:background var(--transition);
+  position:relative;
+}
+.config-tool-card:hover{background:#fafaf9}
+.config-tool-card.selected{background:#f9f9f7}
+.config-tool-card.selected::after{
+  content:'✓';position:absolute;top:12px;right:14px;
+  font-size:12px;font-weight:700;color:var(--black);
+}
+.config-tool-thumb{
+  width:72px;height:72px;background:var(--bone);
+  overflow:hidden;
+}
+.config-tool-thumb img{width:100%;height:100%;object-fit:cover}
+.config-tool-name{font-size:14px;font-weight:500}
+.config-tool-label{
+  font-size:10px;letter-spacing:1.2px;
+  text-transform:uppercase;color:var(--slate);
+}
+.config-tool-price{font-size:14px;font-weight:500;white-space:nowrap}
+.config-tool-detail{
+  font-size:10px;letter-spacing:1px;text-transform:uppercase;
+  color:var(--slate);border:none;border-bottom:1px solid var(--border-dark);
+  background:none;cursor:pointer;font-family:inherit;padding:0 0 1px;
+  margin-top:4px;
+}
+.config-tool-detail:hover{color:var(--black);border-color:var(--black)}
+
+/* Gift box row */
+.config-gift{
+  background:var(--white);padding:16px 20px;
+  display:grid;grid-template-columns:64px 1fr auto;
+  align-items:center;gap:16px;
+  cursor:pointer;transition:background var(--transition);
+  position:relative;border-left:3px solid transparent;
+  margin-top:2px;
+}
+.config-gift.locked{opacity:0.35;pointer-events:none}
+.config-gift.selected{border-left-color:var(--gold-light);background:#fdfcf8}
+.config-gift-lock{
+  position:absolute;inset:0;background:rgba(255,255,255,0.5);
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;font-weight:500;letter-spacing:1px;
+  text-transform:uppercase;color:var(--slate);
+}
+.config-gift:not(.locked) .config-gift-lock{display:none}
+.config-gift-name{font-size:14px;font-weight:500}
+.config-gift-desc{font-size:11px;color:var(--slate);margin-top:2px}
+.config-gift-price{font-size:14px;font-weight:500;white-space:nowrap}
+
+/* Price bar */
+.config-price-bar{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  padding:20px 0;border-top:1px solid var(--border);
+}
+.config-total-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--slate)}
+.config-total-amount{font-size:28px;font-weight:500;font-family:inherit}
+.config-savings{font-size:12px;font-weight:500;color:var(--red)}
+
+/* CTA */
+.config-atc{
+  width:100%;padding:16px;background:var(--black);
+  color:var(--white);border:none;
+  font-size:12px;font-weight:500;letter-spacing:1.5px;
+  text-transform:uppercase;cursor:pointer;
+  font-family:inherit;transition:background var(--transition);
+}
+.config-atc:hover{background:var(--charcoal)}
+.config-atc:disabled{background:var(--border);color:var(--slate);cursor:not-allowed}
+
+/* ── ABOUT / ORIGIN ── */
+.about-section{padding:0 0 100px}
+.about-split{
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;
+  align-items:center;
+}
+.about-image{
+  aspect-ratio:4/5;background:var(--bone);
+  overflow:hidden;
+}
+.about-image img{width:100%;height:100%;object-fit:cover}
+.about-text{padding:40px 0}
+.about-text h3{
+  font-size:clamp(24px,3vw,36px);font-weight:500;
+  line-height:1.2;margin-bottom:24px;
+}
+.about-text p{
+  font-size:16px;color:var(--slate);
+  line-height:1.7;margin-bottom:20px;
+}
+.about-text .link-underline{
+  font-size:12px;font-weight:500;letter-spacing:1px;
+  text-transform:uppercase;padding-bottom:3px;
+  border-bottom:1.5px solid var(--black);
+  display:inline-block;
+}
+@media(max-width:768px){
+  .about-split{grid-template-columns:1fr;gap:32px}
+  .about-text{padding:0}
+}
+
+/* ── BLOG TEASER ── */
+.blog-section{background:var(--bone);padding:100px 0}
+.blog-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+  background:var(--border);margin-top:48px;
+}
+.blog-grid > *{background:var(--white)}
+.blog-card{padding:32px 28px}
+.blog-card-tag{
+  font-size:10px;font-weight:500;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--slate);margin-bottom:16px;
+}
+.blog-card-title{
+  font-size:18px;font-weight:500;line-height:1.4;margin-bottom:12px;
+}
+.blog-card-excerpt{
+  font-size:13px;color:var(--slate);line-height:1.6;margin-bottom:20px;
+}
+.blog-card-link{
+  font-size:11px;font-weight:500;letter-spacing:1px;
+  text-transform:uppercase;padding-bottom:2px;
+  border-bottom:1.5px solid var(--border-dark);
+  transition:border-color var(--transition);
+}
+.blog-card-link:hover{border-color:var(--black)}
+@media(max-width:768px){.blog-grid{grid-template-columns:1fr}}
+
+/* ── INSTAGRAM ── */
+.ig-section{padding:100px 0;text-align:center}
+.ig-section .section-title{margin-bottom:32px}
+.ig-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:8px;
+  margin-bottom:40px;
+}
+.ig-thumb{aspect-ratio:1/1;background:var(--bone);overflow:hidden}
+.ig-thumb img{width:100%;height:100%;object-fit:cover}
+.ig-follow{
+  font-size:14px;font-weight:500;letter-spacing:1px;
+  text-transform:uppercase;padding-bottom:2px;
+  border-bottom:1.5px solid var(--black);
+}
+@media(max-width:768px){.ig-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* ── FOOTER ── */
+.footer{
+  background:var(--off-black);color:var(--white);
+  padding:72px 40px 40px;
+}
+.footer-grid{
+  display:grid;grid-template-columns:2fr 1fr 1fr;
+  gap:40px;margin-bottom:60px;
+}
+.footer-brand{font-size:16px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase}
+.footer-desc{font-size:13px;color:#999;line-height:1.6;max-width:280px;margin-top:16px}
+.footer-col h4{
+  font-size:11px;font-weight:500;letter-spacing:2px;
+  text-transform:uppercase;color:#888;margin-bottom:20px;
+}
+.footer-col a{
+  display:block;font-size:13px;color:#bbb;
+  margin-bottom:10px;transition:color var(--transition);
+}
+.footer-col a:hover{color:var(--white)}
+.footer-bottom{
+  border-top:1px solid #333;padding-top:24px;
+  display:flex;justify-content:space-between;
+  font-size:11px;color:#777;
+}
+@media(max-width:768px){
+  .footer{padding:48px 24px 32px}
+  .footer-grid{grid-template-columns:1fr;gap:32px}
+}
+
+/* ── LIGHTBOX ── */
+.lb-overlay{
+  display:none;position:fixed;inset:0;z-index:20000;
+  background:rgba(0,0,0,0.94);cursor:zoom-out;
+  align-items:center;justify-content:center;
+}
+.lb-overlay.open{display:flex}
+.lb-overlay img{
+  max-width:92vw;max-height:92vh;object-fit:contain;
+  animation:lbFade 0.2s ease;
+}
+@keyframes lbFade{from{opacity:0;transform:scale(0.96)}to{opacity:1;transform:scale(1)}}
+.lb-close{
+  position:fixed;top:20px;right:24px;z-index:20001;
+  background:rgba(255,255,255,0.12);border:none;border-radius:50%;
+  width:40px;height:40px;color:var(--white);font-size:18px;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:background var(--transition);
+}
+.lb-close:hover{background:rgba(255,255,255,0.25)}
+
+/* ── ANIMATIONS ── */
+.fade-up{
+  opacity:0;transform:translateY(24px);
+  transition:opacity 0.7s ease,transform 0.7s ease;
+}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     NAVIGATION
+     ═══════════════════════════════════════════ -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo">SURVIVAL72</a>
+  <div class="nav-links">
+    <a href="#shop">Shop</a>
+    <a href="#about">About</a>
+    <a href="#journal">Journal</a>
+    <a href="#">Cart (0)</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-label">New System</div>
+    <h1 class="hero-title">Professional Precision.<br>Everyday Readiness.</h1>
+    <p class="hero-subtitle">Three modular tools. One system. Engineered for the 72 hours that matter.</p>
+    <a href="#shop" class="hero-cta">Shop the Kit</a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     BRAND STATEMENT
+     ═══════════════════════════════════════════ -->
+<section class="brand-statement" id="about">
+  <div class="page-width--narrow fade-up">
+    <h2>We build tools for professionals who understand that the gap between home and emergency is exactly 72 hours. Not flashy. Just dependable.</h2>
+    <p>Every Survival72 module is engineered to a single standard: it must work the first time, every time, when nothing else does. Cold-forged steel. Precision tolerances. Zero gimmicks.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     PRODUCTS GRID
+     ═══════════════════════════════════════════ -->
+<section class="products-section" id="shop">
+  <div class="page-width">
+    <div class="section-label">The Modules</div>
+    <h2 class="section-title">Three tools. One system.<br>Buy individually or build the kit.</h2>
+  </div>
+  <div class="products-grid page-width">
+    <!-- Pliers -->
+    <div class="product-card fade-up" onclick="document.getElementById('config-section').scrollIntoView({behavior:'smooth'});selectAndScroll('pliers')">
+      <div class="product-card-image">
+        <img src="https://cdn.shopify.com/s/files/1/0751/9030/4813/files/s72_pliers_1.png" alt="Precision Multi-Pliers">
+      </div>
+      <div class="product-card-body">
+        <div class="product-card-name">Precision Multi-Pliers</div>
+        <div class="product-card-desc">25-in-1 cold-forged steel. High-torque grip with integrated wire cutter and survival notch.</div>
+        <div class="product-card-price">$52</div>
+      </div>
+    </div>
+    <!-- Wrench -->
+    <div class="product-card fade-up" onclick="document.getElementById('config-section').scrollIntoView({behavior:'smooth'});selectAndScroll('wrench')">
+      <div class="product-card-image">
+        <img src="https://cdn.shopify.com/s/files/1/0751/9030/4813/files/s72_wrench_1.jpg" alt="Roadside Wrench">
+      </div>
+      <div class="product-card-body">
+        <div class="product-card-name">Roadside Wrench</div>
+        <div class="product-card-desc">9-bit CR-V forged steel. Optimized for vehicle battery terminals and emergency plumbing.</div>
+        <div class="product-card-price">$42</div>
+      </div>
+    </div>
+    <!-- Axe -->
+    <div class="product-card fade-up" onclick="document.getElementById('config-section').scrollIntoView({behavior:'smooth'});selectAndScroll('axe')">
+      <div class="product-card-image">
+        <img src="https://cdn.shopify.com/s/files/1/0751/9030/4813/files/s72_axe_1.jpg" alt="Desert Breacher Axe">
+      </div>
+      <div class="product-card-body">
+        <div class="product-card-name">Desert Breacher Axe</div>
+        <div class="product-card-desc">8-in-1 axe with G10 composite handle. 25° bevel. Engineered for entry, recovery, and heavy prep.</div>
+        <div class="product-card-price">$49</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     KIT CONFIGURATOR
+     ═══════════════════════════════════════════ -->
+<section class="config-section" id="config-section">
+  <div class="config-inner">
+    <div class="config-label">Build Your System</div>
+    <div class="config-title">Configure the Kit</div>
+    <div class="config-subtitle">Select any combination. Price adjusts automatically.</div>
+
+    <div class="config-layout">
+      <!-- Left: Preview -->
+      <div>
+        <div class="config-preview" id="preview" onclick="openLightbox()">
+          <div class="config-preview-hint" id="preview-hint">Click a module<br>to preview</div>
+          <img id="preview-img" src="" alt="">
+          <div class="config-zoom-badge">↗</div>
+        </div>
+      </div>
+
+      <!-- Right: Cards -->
+      <div>
+        <div class="config-modes">
+          <button class="config-mode-btn active" id="mode-custom" onclick="setMode('custom')">Build Your Kit</button>
+          <button class="config-mode-btn" id="mode-elite" onclick="setMode('elite')">Elite Gift Set — $145</button>
+        </div>
+
+        <div class="config-cards">
+          <!-- PLIERS -->
+          <div class="config-tool-card" id="card-pliers"
+               onmouseenter="previewImg('https://cdn.shopify.com/s/files/1/0751/9030/4813/files/s72_pliers_1.png')"
+               onclick="toggleTool('pliers')">
+            <div class="config-tool-thumb"><img src="https://cdn.shopify.com/s/files/1/0751/9030/4813/files/s72_pliers_1.png" alt=""></div>
+            <div>
+              <div class="config-tool-label">Module 01</div>
+              <div class="config-tool-name">Precision Multi-Pliers</div>
+            </div>
+            <div class="config-tool-price">$52</div>
+          </div>
+          <!-- WRENCH -->
+          <div class="config-tool-card" id="card-wrench"
+               onmouseenter="previewImg('https://cdn.shopify.com/s/files/1/0751/9030/4813/files/s72_wrench_1.jpg')"
+               onclick="toggleTool('wrench')">
+            <div class="config-tool-thumb"><img src="https://cdn.shopify.com/s/files/1/0751/9030/4813/files/s72_wrench_1.jpg" alt=""></div>
+            <div>
+              <div class="config-tool-label">Module 02</div>
+              <div class="config-tool-name">Roadside Wrench</div>
+            </div>
+            <div class="config-tool-price">$42</div>
+          </div>
+          <!-- AXE -->
+          <div class="config-tool-card" id="card-axe"
+               onmouseenter="previewImg('https://cdn.shopify.com/s/files/1/0751/9030/4813/files/s72_axe_1.jpg')"
+               onclick="toggleTool('axe')">
+            <div class="config-tool-thumb"><img src="https://cdn.shopify.com/s/files/1/0751/9030/4813/files/s72_axe_1.jpg" alt=""></div>
+            <div>
+              <div class="config-tool-label">Module 03</div>
+              <div class="config-tool-name">Desert Breacher Axe</div>
+            </div>
+            <div class="config-tool-price">$49</div>
+          </div>
+        </div>
+
+        <!-- Gift Box -->
+        <div class="config-gift locked" id="gift-row" onclick="toggleGift()">
+          <div class="config-gift-lock">Select all 3 modules to unlock</div>
+          <div class="config-tool-thumb"><img src="https://cdn.shopify.com/s/files/1/0751/9030/4813/files/s72_gift_box_kit-gift-box.jpg" alt=""></div>
+          <div>
+            <div class="config-gift-name">Elite Magnetic Gift Box</div>
+            <div class="config-gift-desc">Premium clamshell case · EVA foam inlays · S72 Field Guide</div>
+          </div>
+          <div class="config-gift-price">+ $29</div>
+        </div>
+
+        <!-- Price Bar -->
+        <div class="config-price-bar">
+          <div>
+            <div class="config-total-label">Kit Total</div>
+            <div class="config-total-amount" id="total-display">$0</div>
+          </div>
+          <div class="config-savings" id="savings-display"></div>
+        </div>
+
+        <!-- ATC -->
+        <button class="config-atc" id="atc-btn" onclick="addToCart()" disabled>Select a Module</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     ABOUT / ORIGIN
+     ═══════════════════════════════════════════ -->
+<section class="about-section">
+  <div class="page-width">
+    <div class="about-split fade-up">
+      <div class="about-image">
+        <img src="https://cdn.shopify.com/s/files/1/0751/9030/4813/files/s72_pliers_1.png" alt="Survival72 Story">
+      </div>
+      <div class="about-text">
+        <div class="section-label">Our Origin</div>
+        <h3>Designed by professionals.<br>Built for the field.</h3>
+        <p>Survival72 was founded on a single observation: most people carry too many tools or none at all. We set out to design a modular system that covers the critical 72-hour window with precision engineering and zero compromise.</p>
+        <p>Every module is forged from cold-rolled steel, tested to 150% rated load, and backed by a 2-year unconditional guarantee.</p>
+        <a href="#about" class="link-underline">Read the full story</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     BLOG / JOURNAL
+     ═══════════════════════════════════════════ -->
+<section class="blog-section" id="journal">
+  <div class="page-width">
+    <div class="section-label">The Journal</div>
+    <h2 class="section-title">Field notes, gear guides, and the philosophy behind the 72-hour window.</h2>
+    <div class="blog-grid">
+      <div class="blog-card fade-up">
+        <div class="blog-card-tag">3 min read</div>
+        <div class="blog-card-title">Why Pliers Beat a Swiss Army Knife for Everyday Use</div>
+        <div class="blog-card-excerpt">Most multi-tools give you a bit of everything. Pliers give you the one thing you actually need: grip. Here's why that matters more than you think.</div>
+        <a href="#" class="blog-card-link">Read the guide</a>
+      </div>
+      <div class="blog-card fade-up">
+        <div class="blog-card-tag">2 min read</div>
+        <div class="blog-card-title">How to Read a Wrench Size (And Why Most People Get It Wrong)</div>
+        <div class="blog-card-excerpt">Metric vs. imperial, open-end vs. adjustable. A quick guide to understanding wrench sizing for real-world emergencies.</div>
+        <a href="#" class="blog-card-link">Read the guide</a>
+      </div>
+      <div class="blog-card fade-up">
+        <div class="blog-card-tag">4 min read</div>
+        <div class="blog-card-title">What Makes a Good Axe Head (And What to Ignore)</div>
+        <div class="blog-card-excerpt">Weight, edge geometry, handle angle. The details that separate a useful axe from a wall decoration. Our engineer breaks it down.</div>
+        <a href="#" class="blog-card-link">Read the guide</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     INSTAGRAM
+     ═══════════════════════════════════════════ -->
+<section class="ig-section">
+  <div class="page-width">
+    <div class="section-label">Follow Along</div>
+    <h2 class="section-title">@survival72</h2>
+    <div class="ig-grid">
+      <div class="ig-thumb"><img src="https://cdn.shopify.com/s/files/1/0751/9030/4813/files/s72_pliers_1.png" alt=""></div>
+      <div class="ig-thumb"><img src="https://cdn.shopify.com/s/files/1/0751/9030/4813/files/s72_wrench_1.jpg" alt=""></div>
+      <div class="ig-thumb"><img src="https://cdn.shopify.com/s/files/1/0751/9030/4813/files/s72_axe_1.jpg" alt=""></div>
+      <div class="ig-thumb"><img src="https://cdn.shopify.com/s/files/1/0751/9030/4813/files/s72_gift_box_kit-gift-box.jpg" alt=""></div>
+    </div>
+    <a href="https://instagram.com/survival72bob" class="ig-follow">Follow on Instagram</a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">SURVIVAL72</div>
+      <div class="footer-desc">Professional-grade EDC tools engineered for the 72-hour window. Precision. Dependability. Zero gimmicks.</div>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <a href="#shop">All Products</a>
+      <a href="#config-section">Build a Kit</a>
+      <a href="#">Gift Box</a>
+      <a href="#">Wholesale</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#about">About</a>
+      <a href="#journal">Journal</a>
+      <a href="#">Contact</a>
+      <a href="#">Return Policy</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 Survival72. All rights reserved.</span>
+    <span>Terms &nbsp;·&nbsp; Privacy</span>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════
+     LIGHTBOX
+     ═══════════════════════════════════════════ -->
+<div class="lb-overlay" id="lb-overlay" onclick="closeLightbox()">
+  <button class="lb-close" onclick="event.stopPropagation();closeLightbox()">✕</button>
+  <img id="lb-img" src="" alt="">
+</div>
+
+<!-- ═══════════════════════════════════════════
+     JAVASCRIPT
+     ═══════════════════════════════════════════ -->
+<script>
+/* ── NAVIGATION SCROLL ── */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', function(){
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+/* ── SCROLL ANIMATION ── */
+const observer = new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, {threshold:0.1});
+document.querySelectorAll('.fade-up').forEach(function(el){ observer.observe(el); });
+
+/* ── LIGHTBOX ── */
+function openLightbox(){
+  const src = document.getElementById('preview-img').src;
+  if(!src || src === window.location.href) return;
+  document.getElementById('lb-img').src = src;
+  document.getElementById('lb-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(){
+  document.getElementById('lb-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLightbox(); });
+
+/* ── CONFIGURATOR ── */
+var sel = {pliers:false, wrench:false, axe:false};
+var giftOn = false;
+
+var IMGS = {
+  pliers: 'https://cdn.shopify.com/s/files/1/0751/9030/4813/files/s72_pliers_1.png',
+  wrench: 'https://cdn.shopify.com/s/files/1/0751/9030/4813/files/s72_wrench_1.jpg',
+  axe: 'https://cdn.shopify.com/s/files/1/0751/9030/4813/files/s72_axe_1.jpg'
+};
+
+var VARIANTS = {
+  '0-0-1-0': 44902740820013,
+  '1-1-0-0': 44902746882093,
+  '1-1-1-0': 44902746914861,
+  '1-1-1-1': 44902746947629,
+  '1-0-0-0': 44902746980397,
+  '1-0-1-0': 44902747013165,
+  '0-1-0-0': 44902747078701,
+  '0-1-1-0': 44902747111469
+};
+
+function count(){ return (sel.pliers?1:0)+(sel.wrench?1:0)+(sel.axe?1:0); }
+
+function previewImg(url){
+  var img = document.getElementById('preview-img');
+  var hint = document.getElementById('preview-hint');
+  hint.style.display = 'none';
+  img.classList.remove('active');
+  img.onload = function(){ img.classList.add('active'); };
+  img.src = url;
+}
+
+function toggleTool(t){
+  sel[t] = !sel[t];
+  previewImg(IMGS[t]);
+  document.getElementById('mode-elite').classList.remove('active');
+  document.getElementById('mode-custom').classList.add('active');
+  render();
+}
+
+function toggleGift(){
+  if(count() < 3) return;
+  giftOn = !giftOn;
+  render();
+}
+
+function setMode(mode){
+  if(mode === 'elite'){
+    sel = {pliers:true, wrench:true, axe:true}; giftOn = true;
+    document.getElementById('mode-elite').classList.add('active');
+    document.getElementById('mode-custom').classList.remove('active');
+    previewImg(IMGS.pliers);
+  } else {
+    document.getElementById('mode-custom').classList.add('active');
+    document.getElementById('mode-elite').classList.remove('active');
+  }
+  render();
+}
+
+function selectAndScroll(t){
+  sel[t] = true;
+  previewImg(IMGS[t]);
+  document.getElementById('mode-custom').classList.add('active');
+  document.getElementById('mode-elite').classList.remove('active');
+  render();
+}
+
+function render(){
+  ['pliers','wrench','axe'].forEach(function(t){
+    var c = document.getElementById('card-'+t);
+    sel[t] ? c.classList.add('selected') : c.classList.remove('selected');
+  });
+
+  var gift = document.getElementById('gift-row');
+  var all3 = count() === 3;
+  if(!all3){ giftOn = false; }
+  all3 ? gift.classList.remove('locked') : gift.classList.add('locked');
+  giftOn ? gift.classList.add('selected') : gift.classList.remove('selected');
+
+  var sub = (sel.pliers?52:0) + (sel.wrench?42:0) + (sel.axe?49:0);
+  var disc = count() === 2 ? 15 : count() === 3 ? 27 : 0;
+  var tot = sub - disc + (giftOn ? 29 : 0);
+  var n = count();
+
+  document.getElementById('total-display').textContent = (n > 0 || giftOn) ? '$' + tot : '$0';
+  document.getElementById('savings-display').textContent = disc > 0 ? 'You save $' + disc : '';
+
+  var btn = document.getElementById('atc-btn');
+  btn.disabled = n === 0;
+  btn.textContent = n === 0 ? 'Select a Module' : 'Add to Cart — $' + tot;
+}
+
+function addToCart(){
+  var key = (sel.pliers?1:0)+'-'+(sel.wrench?1:0)+'-'+(sel.axe?1:0)+'-'+(giftOn?1:0);
+  var vid = VARIANTS[key];
+  if(!vid){ return; }
+  var btn = document.getElementById('atc-btn');
+  btn.textContent = 'Adding…'; btn.disabled = true;
+  fetch('/cart/add.js',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({items:[{id:vid, quantity:1}]})
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(){
+    btn.textContent = '✓ Added to Cart';
+    setTimeout(function(){ render(); }, 2000);
+  })
+  .catch(function(e){
+    btn.textContent = 'Error — Try Again'; btn.disabled = false;
+  });
+}
+
+// Init
+render();
+</script>
+
+</body>
+</html>
