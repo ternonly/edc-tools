@@ -6,6 +6,10 @@
 
 | 日期 | 平台 | 创作者 | 帖子链接 | 互动方式 | 留言内容 | 时间戳 |
 |---|---|---|---|---|---|---|
+| 2026-05-10 | X | @Survival72EDC | https://x.com/Survival72EDC/status/2053296563380703469 | Post | Fire, water, shelter, blade — a solid multi-tool covers half that list. #EDC #PrepperLife | 10:15 |
+| 2026-05-10 | X | @Survival72EDC | https://x.com/Survival72EDC/status/2053296570024480781 | Post | DC53 fixed blade 8.46\" balance review. #EDCKnife #FixedBlade | 10:15 |
+| 2026-05-10 | X | @Survival72EDC | https://x.com/Survival72EDC/status/2053296577091948926 | Post | Underrated survival item: compact multi-tool. #EDC #SurvivalGear | 10:16 |
+| 2026-05-10 | IG | @survival72bob | https://www.instagram.com/p/DYJBmkylaVM/ | Post | Multi-tool EDC product shot + engagement Q&A caption. #EDC #EveryDayCarry #MultiTool | 10:20 |
 | 2026-04-29 | X | @AULUMU_Japan | https://x.com/AULUMU_Japan/status/2044332146337210879 | Like + Comment | That white setup looks incredibly clean. I always struggle to keep my white gear looking that pristine in daily use! | 15:45 |
 | 2026-04-29 | X | @ReGO_Kazami | https://x.com/ReGO_Kazami/status/2041150871556477062 | Like + Comment | A small multitool like a SAK or a Leatherman Micra would be a perfect addition to a virtual carry! | 15:50 |
 | 2026-04-29 | X | @OntarioKnife | https://x.com/OntarioKnife/status/2047273275131052169 | Like + Comment | The RAT II has been a staple in my rotation for years. It’s hard to beat that reliability at its price point! | 15:55 |
